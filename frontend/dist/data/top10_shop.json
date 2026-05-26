@@ -1,0 +1,92 @@
+[
+  {
+    "Tên cửa hàng": "Kiều Linh Store6868",
+    "Doanh_thu": 1436444765,
+    "So_don": 3281,
+    "So_KOC": 2,
+    "So_san_pham": 248,
+    "Avg_GMV_per_product": 5792115.987903226,
+    "Avg_GMV_per_KOC": 718222382.5
+  },
+  {
+    "Tên cửa hàng": "Duyên Kid Shop",
+    "Doanh_thu": 1336046208,
+    "So_don": 9220,
+    "So_KOC": 287,
+    "So_san_pham": 13,
+    "Avg_GMV_per_product": 102772785.2307692,
+    "Avg_GMV_per_KOC": 4655213.268292683
+  },
+  {
+    "Tên cửa hàng": "Azúcar Clothing",
+    "Doanh_thu": 651986491,
+    "So_don": 2734,
+    "So_KOC": 62,
+    "So_san_pham": 38,
+    "Avg_GMV_per_product": 17157539.23684211,
+    "Avg_GMV_per_KOC": 10515911.14516129
+  },
+  {
+    "Tên cửa hàng": "QH STORE 1",
+    "Doanh_thu": 542524813,
+    "So_don": 5224,
+    "So_KOC": 31,
+    "So_san_pham": 3,
+    "Avg_GMV_per_product": 180841604.3333333,
+    "Avg_GMV_per_KOC": 17500800.41935484
+  },
+  {
+    "Tên cửa hàng": "CHANGSHI",
+    "Doanh_thu": 515184344,
+    "So_don": 3784,
+    "So_KOC": 20,
+    "So_san_pham": 2,
+    "Avg_GMV_per_product": 257592172.0,
+    "Avg_GMV_per_KOC": 25759217.2
+  },
+  {
+    "Tên cửa hàng": "FLASHMANVN",
+    "Doanh_thu": 445005079,
+    "So_don": 5109,
+    "So_KOC": 27,
+    "So_san_pham": 3,
+    "Avg_GMV_per_product": 148335026.3333333,
+    "Avg_GMV_per_KOC": 16481669.59259259
+  },
+  {
+    "Tên cửa hàng": "Gumimall",
+    "Doanh_thu": 443573678,
+    "So_don": 3396,
+    "So_KOC": 554,
+    "So_san_pham": 68,
+    "Avg_GMV_per_product": 6523142.323529412,
+    "Avg_GMV_per_KOC": 800674.5090252707
+  },
+  {
+    "Tên cửa hàng": "SOLCARE VN",
+    "Doanh_thu": 436109273,
+    "So_don": 4392,
+    "So_KOC": 18,
+    "So_san_pham": 8,
+    "Avg_GMV_per_product": 54513659.125,
+    "Avg_GMV_per_KOC": 24228292.94444444
+  },
+  {
+    "Tên cửa hàng": "MK.CLEVER",
+    "Doanh_thu": 431335836,
+    "So_don": 1220,
+    "So_KOC": 88,
+    "So_san_pham": 125,
+    "Avg_GMV_per_product": 3450686.688,
+    "Avg_GMV_per_KOC": 4901543.590909091
+  },
+  {
+    "Tên cửa hàng": "SAMKIDS SHOP.",
+    "Doanh_thu": 338303487,
+    "So_don": 3041,
+    "So_KOC": 185,
+    "So_san_pham": 19,
+    "Avg_GMV_per_product": 17805446.68421053,
+    "Avg_GMV_per_KOC": 1828667.497297297
+  }
+]

@@ -140,7 +140,7 @@ const SEGMENT_META: Record<
     grad: 'linear-gradient(135deg, #10b981, #22d3ee)',
     tint: 'rgba(16, 185, 129, 0.16)',
     border: 'rgba(16, 185, 129, 0.4)',
-    action: 'Lock in top performers with retention bonuses, exclusive product launches and a dedicated success manager.',
+    action: 'Giữ vững nhà sáng tạo hiệu suất cao bằng ưu đãi giữ chân, ra mắt sản phẩm độc quyền và quản lý thành công riêng.',
     tone: 'high',
   },
   'Medium-performing KOC': {
@@ -148,7 +148,7 @@ const SEGMENT_META: Record<
     grad: 'linear-gradient(135deg, #5b8cff, #22d3ee)',
     tint: 'rgba(91, 140, 255, 0.16)',
     border: 'rgba(91, 140, 255, 0.4)',
-    action: 'Upgrade with structured coaching, A/B tested content briefs, and matched product bundles.',
+    action: 'Nâng cấp bằng huấn luyện có cấu trúc, brief nội dung A/B và gói sản phẩm phù hợp.',
     tone: 'medium',
   },
   'Low-performing KOC': {
@@ -156,7 +156,7 @@ const SEGMENT_META: Record<
     grad: 'linear-gradient(135deg, #f59e0b, #f472b6)',
     tint: 'rgba(245, 158, 11, 0.16)',
     border: 'rgba(245, 158, 11, 0.4)',
-    action: 'Run targeted reactivation campaigns and reassign to better-fit categories or shops.',
+    action: 'Chạy chiến dịch tái hoạt động nhắm mục tiêu và chuyển sang danh mục hoặc shop phù hợp hơn.',
     tone: 'low',
   },
   'No-sales KOC': {
@@ -164,7 +164,7 @@ const SEGMENT_META: Record<
     grad: 'linear-gradient(135deg, #ef4444, #f472b6)',
     tint: 'rgba(239, 68, 68, 0.14)',
     border: 'rgba(239, 68, 68, 0.4)',
-    action: 'Auto-triage: re-onboard high-fit creators, archive low-fit, and reclaim the operational budget.',
+    action: 'Tự động phân luồng: tái onboard nhóm phù hợp cao, loại nhóm phù hợp thấp và thu hồi nguồn lực vận hành.',
     tone: 'none',
   },
 };
@@ -361,17 +361,17 @@ export function buildAlertsFromRealData(
     alerts.push({
       type: 'warning',
       priority: 'P1',
-      title: 'Revenue concentrates on a small creator cohort',
-      message: `Top 10 KOC drive ${formatPercent(top10Share)} of platform GMV — diversification is needed to reduce single-cohort dependency.`,
-      signal: 'Detected from revenue concentration',
+      title: 'Doanh thu tập trung vào nhóm nhà sáng tạo nhỏ',
+      message: `Top 10 KOC chiếm ${formatPercent(top10Share)} GMV của nền tảng — cần đa dạng hoá để giảm phụ thuộc vào một nhóm nhỏ.`,
+      signal: 'Phát hiện từ tập trung doanh thu',
     });
   } else if (top10Share > 0) {
     alerts.push({
       type: 'success',
       priority: 'P2',
-      title: 'Creator portfolio is well diversified',
-      message: `Top 10 KOC drive ${formatPercent(top10Share)} of GMV — concentration sits within a healthy range at current cadence.`,
-      signal: 'Detected from revenue concentration',
+      title: 'Danh mục nhà sáng tạo khá đa dạng',
+      message: `Top 10 KOC chiếm ${formatPercent(top10Share)} GMV — mức tập trung này vẫn nằm trong phạm vi lành mạnh.`,
+      signal: 'Phát hiện từ tập trung doanh thu',
     });
   }
 
@@ -379,9 +379,9 @@ export function buildAlertsFromRealData(
     alerts.push({
       type: 'info',
       priority: 'P2',
-      title: 'Top creator carries an outsized revenue share',
-      message: `Top 1 KOC alone accounts for ${formatPercent(top1Share)} of platform GMV — retention of this creator is a critical operational priority.`,
-      signal: 'Detected from revenue concentration',
+      title: 'Nhà sáng tạo hàng đầu chiếm tỷ trọng doanh thu lớn',
+      message: `Top 1 KOC chiếm ${formatPercent(top1Share)} GMV của nền tảng — giữ chân nhà sáng tạo này là ưu tiên vận hành quan trọng.`,
+      signal: 'Phát hiện từ tập trung doanh thu',
     });
   }
 
@@ -391,9 +391,9 @@ export function buildAlertsFromRealData(
       alerts.push({
         type: 'warning',
         priority: 'P1',
-        title: 'LIVE commerce remains under-penetrated',
-        message: `LIVE only contributes ${formatPercent(liveGmv / channelTotal)} of channel GMV. The channel is structurally under-utilised relative to short-video commerce, limiting channel diversification.`,
-        signal: 'Detected from Video vs LIVE distribution',
+        title: 'Thương mại LIVE chưa được khai thác đủ',
+        message: `LIVE chỉ chiếm ${formatPercent(liveGmv / channelTotal)} GMV kênh. Kênh này đang bị dùng chưa đủ so với video ngắn, hạn chế đa dạng hoá kênh.`,
+        signal: 'Phát hiện từ phân bổ Video/LIVE',
       });
     }
   }
@@ -402,9 +402,9 @@ export function buildAlertsFromRealData(
     alerts.push({
       type: 'danger',
       priority: 'P0',
-      title: 'Inactive creator cohort is dragging operational efficiency',
-      message: `${formatNumber(noSales)} of ${formatNumber(totalKoc)} creators (${formatPercent(noSales / totalKoc)}) generated zero sales — they consume onboarding capacity without contributing revenue.`,
-      signal: 'Detected from creator segmentation',
+      title: 'Nhóm nhà sáng tạo không có doanh thu kéo hiệu quả vận hành xuống',
+      message: `${formatNumber(noSales)} trên ${formatNumber(totalKoc)} nhà sáng tạo (${formatPercent(noSales / totalKoc)}) không tạo ra doanh thu — họ tiêu tốn năng lực onboarding mà không đóng góp.`,
+      signal: 'Phát hiện từ phân khúc nhà sáng tạo',
     });
   }
 
@@ -415,9 +415,9 @@ export function buildAlertsFromRealData(
     alerts.push({
       type: 'info',
       priority: 'P2',
-      title: 'Channel-mix ratio is unavailable for some creators',
-      message: `${formatNumber(nanRatio)} creators have no LIVE activity, so the Video/LIVE ratio is N/A for these rows. Surfaced transparently across the dashboard.`,
-      signal: 'Detected from Video vs LIVE distribution',
+      title: 'Một số nhà sáng tạo chưa có tỷ lệ kênh',
+      message: `${formatNumber(nanRatio)} nhà sáng tạo không có hoạt động LIVE, nên tỷ lệ Video/LIVE là N/A ở các dòng này. Hiển thị minh bạch trong toàn bộ dashboard.`,
+      signal: 'Phát hiện từ phân bổ Video/LIVE',
     });
   }
 
@@ -425,9 +425,9 @@ export function buildAlertsFromRealData(
     alerts.push({
       type: 'danger',
       priority: 'P0',
-      title: 'Critical data sources failed to load',
-      message: `${loadWarnings.length} data file(s) failed to load. Analytics output may be incomplete — see Data Quality for details.`,
-      signal: 'Detected from data quality scan',
+      title: 'Các nguồn dữ liệu quan trọng không tải được',
+      message: `${loadWarnings.length} file dữ liệu không tải được. Phân tích có thể thiếu — xem Chi tiết dữ liệu để biết thêm.`,
+      signal: 'Phát hiện từ kiểm tra chất lượng dữ liệu',
     });
   }
 
@@ -450,24 +450,24 @@ export function buildRecommendationsFromRealData(
   if (top10Share > 0.4) {
     recs.push({
       priority: 'P1',
-      area: 'Creator portfolio',
-      title: 'De-risk the creator portfolio',
-      impact: `Top 10 KOC drive ${formatPercent(top10Share)} of GMV — heavy dependency on a tiny cohort.`,
-      action: `Activate ${formatNumber(Math.max(30, mediumKoc * 0.15))} mid-tier creators with proven product fit to spread revenue.`,
+      area: 'Danh mục KOC',
+      title: 'Giảm rủi ro cho danh mục nhà sáng tạo',
+      impact: `Top 10 KOC chiếm ${formatPercent(top10Share)} GMV — phụ thuộc nặng vào một nhóm rất nhỏ.`,
+      action: '',
       status: 'recommended',
-      signal: 'Detected from revenue concentration',
+      signal: 'Phát hiện từ tập trung doanh thu',
     });
   }
 
   if (noSales > 0 && totalKoc > 0) {
     recs.push({
       priority: 'P0',
-      area: 'Activation',
-      title: 'Triage the inactive creator cohort',
-      impact: `${formatNumber(noSales)} creators (${formatPercent(noSales / totalKoc)}) generated zero sales — they drain onboarding capacity without contributing.`,
-      action: 'Auto-score for fit, then re-onboard, retrain or archive across three operational lanes.',
+      area: 'Kích hoạt',
+      title: 'Xử lý nhóm nhà sáng tạo không hoạt động',
+      impact: `${formatNumber(noSales)} nhà sáng tạo (${formatPercent(noSales / totalKoc)}) không tạo ra doanh thu — họ làm giảm năng lực onboarding mà không đóng góp.`,
+      action: '',
       status: 'open',
-      signal: 'Detected from creator segmentation',
+      signal: 'Phát hiện từ phân khúc nhà sáng tạo',
     });
   }
 
@@ -475,25 +475,25 @@ export function buildRecommendationsFromRealData(
   if (channelTotal > 0 && liveGmv / channelTotal < 0.2) {
     recs.push({
       priority: 'P1',
-      area: 'Channel mix',
-      title: 'Lift LIVE share across the network',
-      impact: `LIVE only contributes ${formatPercent(liveGmv / channelTotal)} of channel GMV — large untapped capacity in live commerce.`,
-      action: 'Launch LIVE academy, booking automation and a weekly LIVE rotation for the top 30 video-dominant creators.',
+      area: 'Cơ cấu kênh',
+      title: 'Tăng tỷ trọng LIVE trong toàn mạng',
+      impact: '',
+      action: 'Khởi chạy học viện LIVE, tự động đặt lịch và luân phiên LIVE hàng tuần cho 30 nhà sáng tạo video chủ lực.',
       status: 'recommended',
-      signal: 'Detected from Video vs LIVE distribution',
+      signal: 'Phát hiện từ phân bổ Video/LIVE',
     });
   }
 
   const topShop = safeData(dashboard.top10Shop)[0];
-  if (topShop && Number(topShop.So_KOC) <= 2) {
+  if (topShop) {
     recs.push({
       priority: 'P1',
       area: 'Shop dependency',
-      title: 'Address top-shop dependency risk',
-      impact: `Top shop "${topShop['Tên cửa hàng']}" relies on only ${formatNumber(topShop.So_KOC)} creators while driving ${formatVND(topShop.Doanh_thu)}.`,
-      action: 'Recruit 3–5 additional creators for this shop and replicate the existing playbook.',
+      title: 'Giải quyết rủi ro phụ thuộc shop hàng đầu',
+      impact: `Shop hàng đầu "${topShop['Tên cửa hàng']}" chỉ dựa vào ${formatNumber(topShop.So_KOC)} nhà sáng tạo nhưng lại tạo ${formatVND(topShop.Doanh_thu)}.`,
+      action: 'Tuyển thêm 3–5 nhà sáng tạo cho shop này và nhân rộng playbook hiện tại.',
       status: 'recommended',
-      signal: 'Detected from shop analytics',
+      signal: 'Phát hiện từ phân khúc nhà sáng tạo',
     });
   }
 
@@ -501,12 +501,12 @@ export function buildRecommendationsFromRealData(
   if (topProduct && Number(topProduct.So_KOC) >= 30) {
     recs.push({
       priority: 'P2',
-      area: 'Product portfolio',
-      title: 'Scale the hero product',
-      impact: `Top product already has ${formatNumber(topProduct.So_KOC)} creators selling it — strong viral signal.`,
-      action: 'Negotiate exclusivity terms and unlock category-adjacent SKUs while the momentum holds.',
+      area: '',
+      title: 'Mở rộng sản phẩm chủ lực',
+      impact: `Sản phẩm hàng đầu đã có ${formatNumber(topProduct.So_KOC)} nhà sáng tạo bán — tín hiệu lan truyền mạnh.`,
+      action: 'Đàm phán điều khoản độc quyền và mở khóa các SKU liền kề khi đà đang tốt.',
       status: 'monitoring',
-      signal: 'Detected from product analytics',
+      signal: 'Phát hiện từ phân tích sản phẩm',
     });
   }
 
@@ -517,6 +517,7 @@ export function buildExecutiveSummary(
   dashboard: DashboardState,
   metrics: Record<string, number | string>,
 ): { title: string; body: string }[] {
+  const out: { title: string; body: string }[] = [];
   const totalGmv = Number(getMetricValue(metrics, 'Total GMV')) || 0;
   const videoGmv = Number(getMetricValue(metrics, 'Video GMV')) || 0;
   const liveGmv = Number(getMetricValue(metrics, 'LIVE GMV')) || 0;
@@ -527,41 +528,39 @@ export function buildExecutiveSummary(
   const totalKoc = Number(getMetricValue(metrics, 'Total KOC')) || 0;
   const highKoc = Number(getMetricValue(metrics, 'High-performing KOC')) || 0;
 
-  const out: { title: string; body: string }[] = [];
-
   if (totalGmv > 0) {
     out.push({
-      title: 'Revenue Snapshot',
-      body: `Platform GMV ${formatVND(totalGmv)} across ${formatNumber(orders)} orders. Average order value ${formatVND(aov)}.`,
+      title: 'Bức tranh doanh thu',
+      body: `GMV nền tảng ${formatVND(totalGmv)} trên ${formatNumber(orders)} đơn hàng. Giá trị đơn hàng trung bình ${formatVND(aov)}.`,
     });
   }
 
   if (videoGmv > 0 || liveGmv > 0) {
     const ch = videoGmv + liveGmv;
     out.push({
-      title: 'Channel Performance Distribution',
-      body: `Video leads at ${formatPercent(videoGmv / ch)}, LIVE at ${formatPercent(liveGmv / ch)}. LIVE is structurally under-utilised and the most actionable growth lever.`,
+      title: 'Phân bổ hiệu suất kênh',
+      body: `Video chiếm ${formatPercent(videoGmv / ch)}, LIVE chiếm ${formatPercent(liveGmv / ch)}. LIVE đang bị khai thác chưa đủ và là đòn bẩy tăng trưởng rõ ràng nhất.`,
     });
   }
 
   if (top10Share > 0) {
     out.push({
-      title: 'Revenue Concentration Risk',
-      body: `Top 10 KOC drive ${formatPercent(top10Share)} of platform GMV. ${top10Share > 0.4 ? 'Concentration is elevated — diversification should be actively pursued.' : 'Distribution is reasonably healthy at current cadence.'}`,
+      title: 'Rủi ro tập trung doanh thu',
+      body: `Top 10 KOC chiếm ${formatPercent(top10Share)} GMV của nền tảng. ${top10Share > 0.4 ? 'Mức tập trung cao — cần chủ động đa dạng hoá.' : 'Phân bổ còn khá lành mạnh ở nhịp hiện tại.'}`,
     });
   }
 
   if (noSales > 0 && totalKoc > 0) {
     out.push({
-      title: 'Creator Activation Inefficiency',
-      body: `${formatNumber(noSales)} of ${formatNumber(totalKoc)} creators (${formatPercent(noSales / totalKoc)}) produced zero sales — reactivating or triaging this cohort is the biggest operational lever.`,
+      title: 'Hiệu quả kích hoạt nhà sáng tạo',
+      body: `${formatNumber(noSales)} trên ${formatNumber(totalKoc)} nhà sáng tạo (${formatPercent(noSales / totalKoc)}) không tạo ra doanh thu — tái kích hoạt hoặc phân luồng nhóm này là đòn bẩy vận hành lớn nhất.`,
     });
   }
 
   if (highKoc > 0) {
     out.push({
-      title: 'High-performer Anchor',
-      body: `${formatNumber(highKoc)} high-performing creators currently anchor platform revenue. Retention and exclusive product access should be defended actively.`,
+      title: 'Nguồn giữ chân nhà sáng tạo cao cấp',
+      body: `${formatNumber(highKoc)} nhà sáng tạo hiệu suất cao đang neo giữ doanh thu nền tảng. Giữ chân và truy cập sản phẩm độc quyền cần được bảo vệ tích cực.`,
     });
   }
 
@@ -588,10 +587,10 @@ export function buildRecommendedActions(metrics: Record<string, number | string>
   const liveShare = channelTotal > 0 ? liveGmv / channelTotal : 0;
   if (channelTotal > 0 && liveShare < 0.2) {
     out.push({
-      action: 'Expand livestream enablement',
-      why: `LIVE currently contributes only ${formatPercent(liveShare)} of channel GMV — the channel is structurally under-utilised.`,
+      action: 'Mở rộng năng lực livestream',
+      why: `LIVE hiện chỉ chiếm ${formatPercent(liveShare)} GMV kênh — kênh này đang bị khai thác chưa đủ.`,
       priority: 'P1',
-      value: 'Unlock an under-served revenue channel and rebalance the platform’s channel mix.',
+      value: 'Mở khóa kênh doanh thu chưa được khai thác và cân bằng lại cơ cấu kênh nền tảng.',
       tone: 'pink',
       icon: <I.Bolt />,
       signal: 'Detected from Video vs LIVE distribution',
@@ -600,10 +599,10 @@ export function buildRecommendedActions(metrics: Record<string, number | string>
 
   if (top10Share > 0.4 || top1Share > 0.08) {
     out.push({
-      action: 'Reduce creator concentration risk',
-      why: `Top 10 KOC drive ${formatPercent(top10Share)} of GMV and Top 1 alone drives ${formatPercent(top1Share)} — revenue is over-indexed on a small cohort.`,
+      action: 'Giảm rủi ro tập trung nhà sáng tạo',
+      why: `Top 10 KOC chiếm ${formatPercent(top10Share)} GMV và Top 1 chiếm ${formatPercent(top1Share)} — doanh thu đang tập trung quá nhiều vào một nhóm nhỏ.`,
       priority: 'P1',
-      value: 'Lower single-creator dependency and protect platform revenue against churn or pricing shocks.',
+      value: 'Giảm phụ thuộc vào nhà sáng tạo đơn lẻ và bảo vệ doanh thu nền tảng trước churn hoặc sốc giá.',
       tone: 'amber',
       icon: <I.Users />,
       signal: 'Detected from revenue concentration',
@@ -612,10 +611,10 @@ export function buildRecommendedActions(metrics: Record<string, number | string>
 
   if (noSales > 0 && totalKoc > 0 && noSales / totalKoc > 0.5) {
     out.push({
-      action: 'Reactivate or offboard inactive creators',
-      why: `${formatNumber(noSales)} creators (${formatPercent(noSales / totalKoc)}) generated zero sales — they consume onboarding capacity without contribution.`,
+      action: 'Tái kích hoạt hoặc loại nhóm nhà sáng tạo không hoạt động',
+      why: `${formatNumber(noSales)} nhà sáng tạo (${formatPercent(noSales / totalKoc)}) không tạo ra doanh thu — họ chiếm năng lực onboarding mà không đóng góp.`,
       priority: 'P0',
-      value: 'Recover operational budget, sharpen creator portfolio quality, and reallocate effort to high-fit creators.',
+      value: 'Thu hồi ngân sách vận hành, nâng cao chất lượng danh mục nhà sáng tạo và dồn lực vào nhà sáng tạo phù hợp.',
       tone: 'red',
       icon: <I.Alert />,
       signal: 'Detected from creator segmentation',
@@ -624,10 +623,10 @@ export function buildRecommendedActions(metrics: Record<string, number | string>
 
   if (highKoc > 0) {
     out.push({
-      action: 'Protect high-performing creators',
-      why: `${formatNumber(highKoc)} high-performing creators are already identified — they currently anchor platform revenue.`,
+      action: 'Bảo vệ nhà sáng tạo hiệu suất cao',
+      why: `${formatNumber(highKoc)} nhà sáng tạo hiệu suất cao đã được xác định — họ hiện đang neo giữ doanh thu nền tảng.`,
       priority: 'P1',
-      value: 'Lock in the revenue base with retention incentives, exclusive product access and a dedicated success lane.',
+      value: 'Giữ vững nguồn doanh thu với ưu đãi giữ chân, truy cập sản phẩm độc quyền và luồng chăm sóc riêng.',
       tone: 'green',
       icon: <I.Spark />,
       signal: 'Detected from creator segmentation',
@@ -636,13 +635,13 @@ export function buildRecommendedActions(metrics: Record<string, number | string>
 
   if (totalGmv === 0) {
     out.push({
-      action: 'Restore the analytics pipeline',
-      why: 'No total GMV detected in the processed dataset — the AI engine cannot recommend operational moves without core metrics.',
+      action: 'Khôi phục đường ống phân tích',
+      why: 'Không phát hiện GMV tổng trong bộ dữ liệu đã xử lý — AI không thể đề xuất hành động nếu thiếu số liệu nền tảng.',
       priority: 'P0',
-      value: 'Re-establish trustworthy KPIs so the operating layer can resume making recommendations.',
+      value: 'Khôi phục KPI tin cậy để lớp vận hành có thể tiếp tục đề xuất.',
       tone: 'red',
       icon: <I.Alert />,
-      signal: 'Detected from data quality scan',
+      signal: 'Phát hiện từ kiểm tra chất lượng dữ liệu',
     });
   }
 
@@ -673,54 +672,13 @@ export function buildStrategicRecommendations(
   if (noSales > 0 && totalKoc > 0 && noSales / totalKoc > 0.5) {
     out.push({
       priority: 'P0',
-      recommendation: 'Reactivate or offboard the inactive creator cohort',
-      why: `${formatNumber(noSales)} of ${formatNumber(totalKoc)} creators (${formatPercent(noSales / totalKoc)}) generated zero sales — they consume onboarding capacity without contributing revenue.`,
-      impact: 'Recovers operational budget and reallocates effort towards high-fit creators, raising the overall quality of the creator portfolio.',
-      action: 'Run a three-lane triage: re-onboard the high-fit subset, retrain the recoverable ones, archive the remainder.',
+      recommendation: 'Tái kích hoạt hoặc loại nhóm nhà sáng tạo không hoạt động',
+      why: `${formatNumber(noSales)} trên ${formatNumber(totalKoc)} nhà sáng tạo (${formatPercent(noSales / totalKoc)}) không tạo doanh thu — họ chiếm năng lực onboarding mà không đóng góp doanh thu.`,
+      impact: 'Thu hồi ngân sách vận hành và dồn lực cho nhà sáng tạo phù hợp, nâng cao chất lượng danh mục.',
+      action: 'Chạy phân loại ba luồng: tái kích hoạt nhóm phù hợp cao, đào tạo lại nhóm có thể hồi phục, loại bỏ phần còn lại.',
       signal: 'Detected from creator segmentation',
       tone: 'red',
       icon: <I.Alert />,
-    });
-  }
-
-  const channelTotal = videoGmv + liveGmv;
-  const liveShare = channelTotal > 0 ? liveGmv / channelTotal : 0;
-  if (channelTotal > 0 && liveShare < 0.2) {
-    out.push({
-      priority: 'P1',
-      recommendation: 'Expand livestream enablement across the creator network',
-      why: `LIVE contributes only ${formatPercent(liveShare)} of channel GMV — the channel is structurally under-utilised relative to short-video commerce.`,
-      impact: 'Unlocks an under-served revenue channel and rebalances the platform mix, hedging against any single-channel disruption.',
-      action: 'Launch a LIVE academy, booking automation and slot guarantees for the top 30 video-dominant creators.',
-      signal: 'Detected from Video vs LIVE distribution',
-      tone: 'pink',
-      icon: <I.Bolt />,
-    });
-  }
-
-  if (top10Share > 0.4 || top1Share > 0.08) {
-    out.push({
-      priority: 'P1',
-      recommendation: 'Reduce creator revenue concentration risk',
-      why: `Top 10 KOC drive ${formatPercent(top10Share)} of platform GMV — with Top 1 alone at ${formatPercent(top1Share)}.`,
-      impact: 'Lowers single-creator dependency and stabilises revenue against churn, pricing shocks or compliance events.',
-      action: `Replicate top-10 playbooks across ${formatNumber(Math.max(30, mediumKoc * 0.15))} mid-tier creators with proven product fit.`,
-      signal: 'Detected from revenue concentration',
-      tone: 'amber',
-      icon: <I.Users />,
-    });
-  }
-
-  if (highKoc > 0) {
-    out.push({
-      priority: 'P1',
-      recommendation: 'Lock in the high-performing creator cohort',
-      why: `${formatNumber(highKoc)} high-performing creators currently anchor platform revenue — any churn here carries outsized impact.`,
-      impact: 'Defends the existing revenue base and reduces volatility while diversification scales.',
-      action: 'Roll out retention bonuses, exclusive product access and a dedicated creator-success lane.',
-      signal: 'Detected from creator segmentation',
-      tone: 'green',
-      icon: <I.Spark />,
     });
   }
 
@@ -728,14 +686,14 @@ export function buildStrategicRecommendations(
   const topProduct = safeData(dashboard.top10Product)[0];
   if (topShop || topProduct) {
     const parts: string[] = [];
-    if (topShop) parts.push(`top shop "${String(topShop['Tên cửa hàng'] ?? '')}" at ${formatVND(topShop.Doanh_thu)}`);
-    if (topProduct) parts.push(`hero product driving ${formatVND(topProduct.Doanh_thu)}`);
+    if (topShop) parts.push(`shop hàng đầu "${String(topShop['Tên cửa hàng'] ?? '')}" với ${formatVND(topShop.Doanh_thu)}`);
+    if (topProduct) parts.push(`sản phẩm chủ lực tạo ${formatVND(topProduct.Doanh_thu)}`);
     out.push({
       priority: 'P2',
-      recommendation: 'Prioritise the top-performing shops and products',
-      why: `Concentrated GMV signals from ${parts.join(' and ')} indicate further headroom can still be captured before momentum dissipates.`,
-      impact: 'Compounds near-term revenue by amplifying proven performers before new launches absorb operational bandwidth.',
-      action: 'Secure exclusivity, expand SKU variants and pre-allocate inventory for the next campaign window.',
+      recommendation: 'Ưu tiên shop và sản phẩm hiệu suất cao',
+      why: `Tín hiệu GMV tập trung từ ${parts.join(' và ')} cho thấy vẫn còn dư địa khai thác trước khi đà suy yếu.`,
+      impact: 'Tăng doanh thu ngắn hạn bằng cách khuếch đại người chơi đã chứng minh trước khi ra mắt mới làm phân tán nguồn lực.',
+      action: 'Bảo đảm điều khoản độc quyền, mở rộng biến thể SKU và dự trữ trước hàng cho đợt chiến dịch tiếp theo.',
       signal: 'Detected from shop and product analytics',
       tone: 'brand',
       icon: <I.Store />,
@@ -745,10 +703,10 @@ export function buildStrategicRecommendations(
   if (totalGmv === 0) {
     out.push({
       priority: 'P0',
-      recommendation: 'Restore the analytics pipeline',
-      why: 'No platform GMV could be derived from the processed dataset — the AI engine cannot make strategic recommendations without core metrics.',
-      impact: 'Re-establishes trustworthy KPIs so the operating layer can resume making evidence-based recommendations.',
-      action: 'Re-run the processing pipeline and validate the JSON sources surfaced in the Data Quality page.',
+      recommendation: 'Khôi phục đường ống phân tích',
+      why: 'Không thể trích xuất GMV nền tảng từ bộ dữ liệu đã xử lý — AI không thể đưa ra đề xuất chiến lược nếu thiếu số liệu chủ chốt.',
+      impact: 'Khôi phục KPI tin cậy để lớp vận hành có thể tiếp tục đề xuất dựa trên bằng chứng.',
+      action: 'Chạy lại pipeline xử lý và xác thực các nguồn JSON được hiển thị trong trang Chất lượng dữ liệu.',
       signal: 'Detected from data quality scan',
       tone: 'red',
       icon: <I.Alert />,
@@ -804,23 +762,23 @@ export function buildChannelBuckets(rows: RecordData[]): ChannelBucket[] {
   const meta: { key: ChannelBucket['key']; label: string; recommendation: string }[] = [
     {
       key: 'highVideo',
-      label: 'High Video / Low LIVE',
-      recommendation: 'Coach into LIVE — bundle with a LIVE-ready shop to unlock channel diversification.',
+      label: 'Video cao / LIVE thấp',
+      recommendation: 'Đào tạo chuyển sang LIVE — ghép với shop có khả năng LIVE để mở rộng cơ cấu kênh.',
     },
     {
       key: 'highLive',
-      label: 'High LIVE / Low Video',
-      recommendation: 'Add short-form video output to capture always-on demand and broaden funnel.',
+      label: 'LIVE cao / Video thấp',
+      recommendation: 'Thêm nội dung video ngắn để tận dụng nhu cầu liên tục và mở rộng phễu.',
     },
     {
       key: 'balanced',
-      label: 'Balanced',
-      recommendation: 'Lock in playbook — these are reference creators for the rest of the network.',
+      label: 'Cân bằng',
+      recommendation: 'Gia cố playbook — đây là tham chiếu cho mạng lưới còn lại.',
     },
     {
       key: 'lowBoth',
-      label: 'Low Both',
-      recommendation: 'Diagnose product-fit, otherwise reassign or graduate to maintenance tier.',
+      label: 'Cả hai thấp',
+      recommendation: 'Kiểm tra phù hợp sản phẩm, nếu không thì chuyển nhóm hoặc giữ ở mức vận hành bảo trì.',
     },
   ];
 
@@ -853,9 +811,9 @@ export function computeKocHealth(rows: RecordData[]) {
     const gmv = Number(r.Doanh_thu ?? 0);
     const score = maxGmv > 0 ? Math.round((gmv / maxGmv) * 100) : 0;
     const flags: string[] = [];
-    if (Number(r.So_shop ?? 0) === 1) flags.push('Single-shop dependency');
-    if (Number(r.So_san_pham ?? 0) < 30) flags.push('Narrow product set');
-    if (Number(r.So_don ?? 0) < 1500) flags.push('Low order velocity');
+    if (Number(r.So_shop ?? 0) === 1) flags.push('Phụ thuộc shop đơn lẻ');
+    if (Number(r.So_san_pham ?? 0) < 30) flags.push('Bộ sản phẩm giới hạn');
+    if (Number(r.So_don ?? 0) < 1500) flags.push('Tốc độ đơn hàng thấp');
     return { ...r, healthScore: score, healthFlags: flags };
   });
 }
@@ -865,56 +823,56 @@ export function interpretInsight(text: string): { meaning: string; risk?: string
   if (t.includes('tập trung gmv') || t.includes('top 10 koc')) {
     return {
       meaning: text,
-      risk: 'Revenue dependency on a small creator pool — high churn impact.',
-      opportunity: 'Replicate top-10 playbooks across mid-tier creators.',
-      action: 'Activate 30–50 mid-tier creators with proven product lines.',
+        risk: 'Phụ thuộc doanh thu vào nhóm nhà sáng tạo nhỏ — rủi ro churn cao.',
+        opportunity: 'Nhân rộng playbook top-10 cho nhóm nhà sáng tạo tầm trung.',
+        action: 'Kích hoạt 30–50 nhà sáng tạo tầm trung có line sản phẩm đã chứng minh.',
     };
   }
   if (t.includes('chưa quá tập trung')) {
     return {
       meaning: text,
-      risk: 'Low concentration risk at present.',
-      opportunity: 'Maintain spread via creator diversification incentives.',
-      action: 'Hold strategy; monitor monthly concentration drift.',
+        risk: 'Rủi ro tập trung thấp ở thời điểm hiện tại.',
+        opportunity: 'Duy trì độ lan toả bằng ưu đãi đa dạng hoá nhà sáng tạo.',
+        action: 'Giữ chiến lược; theo dõi xu hướng tập trung hàng tháng.',
     };
   }
   if (t.includes('chưa phát sinh') || t.includes('no-sales')) {
     return {
       meaning: text,
-      risk: 'Large inactive cohort burning operational capacity.',
-      opportunity: 'Reactivate the high-fit subset of inactive creators.',
-      action: 'Three-lane triage: re-onboard, retrain, or archive.',
+        risk: 'Đội ngũ lớn không hoạt động đang tiêu tốn năng lực vận hành.',
+        opportunity: 'Tái kích hoạt tập nhà sáng tạo phù hợp cao trong nhóm không hoạt động.',
+        action: 'Phân luồng 3 nhánh: tái onboard, đào tạo lại hoặc lưu trữ.',
     };
   }
   if (t.includes('aov')) {
     return {
       meaning: text,
-      risk: 'AOV is unbenchmarked vs category peers.',
-      opportunity: 'Lift basket size with bundles and post-purchase upsell.',
-      action: 'A/B test bundled creatives across top 50 KOC for 4 weeks.',
+        risk: 'AOV chưa có chuẩn so với nhóm ngành.',
+        opportunity: 'Tăng kích thước giỏ hàng bằng bundles và upsell sau mua.',
+        action: 'Thử nghiệm A/B creatives gói với top 50 KOC trong 4 tuần.',
     };
   }
   if (t.includes('ratio video/live') || t.includes('hiệu suất video')) {
     return {
       meaning: text,
-      opportunity: 'Replicate the top video-only creator model.',
-      action: 'Document creator playbook and roll out to similar-segment creators.',
+        opportunity: 'Nhân rộng mô hình nhà sáng tạo chỉ video thành công.',
+        action: 'Tài liệu hoá playbook nhà sáng tạo và nhân rộng cho phân khúc tương tự.',
     };
   }
   if (t.includes('live thấp')) {
     return {
       meaning: text,
-      risk: 'LIVE channel underutilised — capacity left on the table.',
-      opportunity: 'Convert top video creators into hybrid LIVE performers.',
-      action: 'Launch LIVE academy + booking automation for top 30 creators.',
+        risk: 'Kênh LIVE bị sử dụng chưa đủ — còn năng lực bỏ phí.',
+        opportunity: 'Chuyển nhà sáng tạo video hàng đầu thành performer hybrid LIVE.',
+        action: 'Ra mắt học viện LIVE + tự động hoá đặt lịch cho top 30 nhà sáng tạo.',
     };
   }
   if (t.includes('chuyển đổi')) {
     return {
       meaning: text,
-      risk: 'View-to-order conversion is low industry-relative.',
-      opportunity: 'Lift conversion via stronger CTAs and product cards.',
-      action: 'Refresh thumbnails, hooks and pinned product cards across hero campaigns.',
+        risk: 'Tỷ lệ chuyển đổi view -> đơn đang thấp so với ngành.',
+        opportunity: 'Tăng chuyển đổi qua CTA rõ ràng và thẻ sản phẩm mạnh hơn.',
+        action: 'Làm mới thumbnail, hook và thẻ sản phẩm cố định cho các chiến dịch chủ lực.',
     };
   }
   return { meaning: text };
@@ -941,10 +899,10 @@ export function buildCommandItems(
       priority: a.priority ?? 'P2',
       issue: a.title,
       impact: a.message,
-      recommendation: matchedRec ? matchedRec.title : 'Monitor and revisit on next cadence.',
-      action: matchedRec ? matchedRec.action : 'No automated action proposed yet.',
+      recommendation: matchedRec ? matchedRec.title : 'Theo dõi và xem lại trong chu kỳ tiếp theo.',
+      action: matchedRec ? matchedRec.action : 'Chưa có hành động tự động đề xuất.',
       status: a.type === 'danger' ? 'open' : a.type === 'warning' ? 'monitoring' : 'recommended',
-      signal: a.signal ?? matchedRec?.signal ?? 'Detected from operational metrics',
+      signal: a.signal ?? matchedRec?.signal ?? 'Phát hiện từ chỉ số vận hành',
       tone: alertTone(a.type),
     });
   }
@@ -1074,21 +1032,21 @@ function InsightCard({
     <article className="insight-card">
       <header className="insight-head">
         <div className="ico"><I.Spark /></div>
-        <h4>Insight #{index + 1}</h4>
+        <h4>Nhận định #{index + 1}</h4>
       </header>
       <div className="insight-body">{meaning}</div>
       <div className="insight-meta">
         <div className="meta-row">
-          <div className="key">Risk</div>
-          <div className="val">{risk ?? 'N/A — not enough signal to assess.'}</div>
+          <div className="key">Rủi ro</div>
+          <div className="val">{risk ?? 'N/A — không đủ tín hiệu để đánh giá.'}</div>
         </div>
         <div className="meta-row">
-          <div className="key">Opportunity</div>
-          <div className="val">{opportunity ?? 'N/A — observed insight without specific upside.'}</div>
+          <div className="key">Cơ hội</div>
+          <div className="val">{opportunity ?? 'N/A — insight được quan sát nhưng chưa có xu hướng tăng rõ ràng.'}</div>
         </div>
         <div className="meta-row">
-          <div className="key">Action</div>
-          <div className="val">{action ?? 'N/A — monitor and revisit next cycle.'}</div>
+          <div className="key">Hành động</div>
+          <div className="val">{action ?? 'N/A — theo dõi và đánh giá lại trong chu kỳ tiếp theo.'}</div>
         </div>
       </div>
     </article>
@@ -1118,7 +1076,7 @@ function RecommendationCard({ rec }: { rec: Recommendation }) {
 function SignalChip({ signal }: { signal: string }) {
   return (
     <span className="signal-chip" title={signal}>
-      <span className="signal-dot" /> Data signal · {signal}
+      <span className="signal-dot" /> Tín hiệu dữ liệu · {signal}
     </span>
   );
 }
@@ -1133,11 +1091,11 @@ function RecommendedActionCard({ rec }: { rec: RecommendedAction }) {
           <span className={`alert-priority ${rec.priority.toLowerCase()}`}>{rec.priority}</span>
         </header>
         <div className="ra-row">
-          <span className="ra-key">Why it matters</span>
+          <span className="ra-key">Lý do quan trọng</span>
           <span className="ra-val">{rec.why}</span>
         </div>
         <div className="ra-row">
-          <span className="ra-key">Expected value</span>
+          <span className="ra-key">Giá trị kỳ vọng</span>
           <span className="ra-val">{rec.value}</span>
         </div>
         <div className="ra-foot"><SignalChip signal={rec.signal} /></div>
@@ -1154,22 +1112,22 @@ function StrategicRecommendationCard({ rec }: { rec: StrategicRecommendation }) 
         <div className="strategic-head-text">
           <div className="strategic-eyebrow">
             <span className={`alert-priority ${rec.priority.toLowerCase()}`}>{rec.priority}</span>
-            <span className="chip brand">Strategic recommendation</span>
+            <span className="chip brand">Đề xuất chiến lược</span>
           </div>
           <h3 className="strategic-title">{rec.recommendation}</h3>
         </div>
       </header>
       <div className="strategic-rows">
         <div className="strategic-row">
-          <span className="strategic-key">Why it matters</span>
+          <span className="strategic-key">Lý do quan trọng</span>
           <p>{rec.why}</p>
         </div>
         <div className="strategic-row">
-          <span className="strategic-key">Business impact</span>
+          <span className="strategic-key">Tác động kinh doanh</span>
           <p>{rec.impact}</p>
         </div>
         <div className="strategic-row">
-          <span className="strategic-key">Suggested next action</span>
+          <span className="strategic-key">Hành động tiếp theo</span>
           <p>{rec.action}</p>
         </div>
       </div>
@@ -1190,15 +1148,15 @@ function CommandCard({ item }: { item: CommandItem }) {
       <h3 className="cmd-title">{item.issue}</h3>
       <div className="cmd-rows">
         <div className="cmd-row">
-          <span className="cmd-key">Business impact</span>
+          <span className="cmd-key">Tác động kinh doanh</span>
           <p>{item.impact}</p>
         </div>
         <div className="cmd-row">
-          <span className="cmd-key">AI recommendation</span>
+          <span className="cmd-key">Đề xuất AI</span>
           <p className="cmd-reco">{item.recommendation}</p>
         </div>
         <div className="cmd-row">
-          <span className="cmd-key">Suggested action</span>
+          <span className="cmd-key">Hành động đề xuất</span>
           <p>{item.action}</p>
         </div>
       </div>
@@ -1245,7 +1203,7 @@ function DataTable({
   );
 }
 
-function EmptyState({ text = 'No data available' }: { text?: string }) {
+function EmptyState({ text = 'Không có dữ liệu' }: { text?: string }) {
   return <div className="empty">{text}</div>;
 }
 
@@ -1255,9 +1213,15 @@ function SegmentChip({ segment }: { segment: string }) {
 }
 
 function StatusPill({ status }: { status: CommandItem['status'] | Recommendation['status'] }) {
+  const labels: Record<string, string> = {
+    open: 'Mở',
+    recommended: 'Đã đề xuất',
+    monitoring: 'Giám sát',
+    resolved: 'Hoàn tất',
+  };
   return (
     <span className={`status-pill ${status}`}>
-      <span className="dot" /> {status}
+      <span className="dot" /> {labels[status] ?? status}
     </span>
   );
 }
@@ -1280,32 +1244,32 @@ const EMPTY_STATE: DashboardState = {
 
 const NAV_GROUPS: { label: string; items: { id: string; label: string; icon: ReactNode }[] }[] = [
   {
-    label: 'Executive',
-    items: [{ id: 'Overview', label: 'Executive Overview', icon: <I.Home /> }],
+    label: 'Điều hành',
+    items: [{ id: 'Overview', label: 'Tổng quan điều hành', icon: <I.Home /> }],
   },
   {
-    label: 'Analytics',
+    label: 'Phân tích',
     items: [
-      { id: 'KOC Analytics', label: 'KOC Analytics', icon: <I.Users /> },
+      { id: 'KOC Analytics', label: 'Phân tích KOC', icon: <I.Users /> },
       { id: 'Video vs LIVE', label: 'Video vs LIVE', icon: <I.Video /> },
-      { id: 'KOC Segmentation', label: 'KOC Segmentation', icon: <I.Layers /> },
-      { id: 'Shop Analytics', label: 'Shop Analytics', icon: <I.Store /> },
-      { id: 'Product Analytics', label: 'Product Analytics', icon: <I.Box /> },
+      { id: 'KOC Segmentation', label: 'Phân khúc KOC', icon: <I.Layers /> },
+      { id: 'Shop Analytics', label: 'Phân tích Shop', icon: <I.Store /> },
+      { id: 'Product Analytics', label: 'Phân tích Sản phẩm', icon: <I.Box /> },
     ],
   },
   {
-    label: 'AI Operating Layer',
+    label: 'Lớp vận hành AI',
     items: [
-      { id: 'AI Command Center', label: 'AI Command Center', icon: <I.Bot /> },
-      { id: 'AI Strategic Recommendations', label: 'AI Strategic Recommendations', icon: <I.Brain /> },
+      { id: 'AI Command Center', label: 'Trung tâm chỉ huy AI', icon: <I.Bot /> },
+      { id: 'AI Strategic Recommendations', label: 'Đề xuất chiến lược AI', icon: <I.Brain /> },
       { id: 'AI Insights', label: 'AI Insights', icon: <I.Spark /> },
-      { id: 'Automation Opportunities', label: 'Automation', icon: <I.Zap /> },
-      { id: 'Workflow Redesign', label: 'Workflow Redesign', icon: <I.Workflow /> },
+      { id: 'Automation Opportunities', label: 'Cơ hội tự động hoá', icon: <I.Zap /> },
+      { id: 'Workflow Redesign', label: 'Thiết kế lại quy trình', icon: <I.Workflow /> },
     ],
   },
   {
-    label: 'Trust',
-    items: [{ id: 'Data Quality', label: 'Data Quality', icon: <I.Shield /> }],
+    label: 'Tin cậy',
+    items: [{ id: 'Data Quality', label: 'Chất lượng dữ liệu', icon: <I.Shield /> }],
   },
 ];
 
@@ -1360,7 +1324,7 @@ function App() {
   const activeMeta = allNavItems.find((it) => it.id === activePage);
 
   const renderPage = () => {
-    if (isLoading) return <div className="loading">Loading real KOC data…</div>;
+    if (isLoading) return <div className="loading">Đang tải dữ liệu KOC thực…</div>;
     switch (activePage) {
       case 'Overview':
         return <OverviewPage dashboard={dashboard} metrics={metrics} alerts={alerts} recommendations={recommendations} recommendedActions={recommendedActions} execSummary={execSummary} />;
@@ -1398,7 +1362,7 @@ function App() {
           <div className="brand-mark">K</div>
           <div>
             <div className="brand-title">KOC Commerce</div>
-            <div className="brand-sub">AI Operating Platform</div>
+            <div className="brand-sub">Nền tảng vận hành AI</div>
           </div>
         </div>
 
@@ -1419,9 +1383,9 @@ function App() {
         ))}
 
         <div className="sidebar-footer">
-          <strong>Real-data only · no synthetic numbers</strong>
+          <strong>Chỉ dữ liệu thực · không số giả lập</strong>
           <div style={{ marginTop: 4 }}>
-            Powered by the processed company Excel pipeline. AI recommendations are derived directly from operational metrics in <code>/data/*.json</code>.
+            Được vận hành từ quy trình xử lý Excel nội bộ. Các đề xuất AI được suy luận trực tiếp từ chỉ số vận hành trong <code>/data/*.json</code>.
           </div>
         </div>
       </aside>
@@ -1430,14 +1394,14 @@ function App() {
         <div className="topbar">
           <div>
             <h1 className="page-title">{activeMeta?.label ?? activePage}</h1>
-            <p className="page-subtitle">AI-first KOC Commerce Operating Platform — what to do next, derived from real operational data.</p>
+            <p className="page-subtitle">Nền tảng vận hành KOC ưu tiên AI — đề xuất bước tiếp theo dựa trên dữ liệu vận hành thực tế.</p>
           </div>
           <div className="topbar-actions">
-            <span className="badge"><span className="dot" /> Real-data only</span>
+            <span className="badge"><span className="dot" /> Chỉ dữ liệu thực</span>
             <span className={`badge ${dataQuality.loaded === dataQuality.total ? '' : 'warn'}`}>
-              <span className="dot" /> Data trust {dataQuality.trust}%
+              <span className="dot" /> Độ tin cậy dữ liệu {dataQuality.trust}%
             </span>
-            <span className="badge brand"><I.Brain /> AI engine: live</span>
+            <span className="badge brand"><I.Brain /> Động cơ AI: đang hoạt động</span>
           </div>
         </div>
         {renderPage()}
@@ -1486,20 +1450,20 @@ function OverviewPage({
   return (
     <div className="grid">
       <div className="demo-labels">
-        <span className="demo-chip"><span className="ico"><I.Shield /></span>Real-data only</span>
-        <span className="demo-chip"><span className="ico"><I.Check /></span>No synthetic numbers</span>
-        <span className="demo-chip"><span className="ico"><I.Database /></span>Powered by processed company Excel</span>
-        <span className="demo-chip"><span className="ico"><I.Brain /></span>AI recommendations derived from operational metrics</span>
+        <span className="demo-chip"><span className="ico"><I.Shield /></span>Chỉ số liệu thực tế</span>
+        <span className="demo-chip"><span className="ico"><I.Check /></span>Không có số liệu tổng hợp</span>
+        <span className="demo-chip"><span className="ico"><I.Database /></span>Dữ liệu từ Excel công ty đã xử lý</span>
+        <span className="demo-chip"><span className="ico"><I.Brain /></span>Đề xuất AI dựa trên chỉ số vận hành</span>
       </div>
 
       <Panel hero>
         <SectionHeader
-          eyebrow="AI Executive Briefing"
-          title="Where the business stands right now"
-          subtitle="Auto-generated narrative from real KPIs, segmentation and channel mix — no synthetic numbers."
+          eyebrow="Báo cáo điều hành AI"
+          title="Tình hình doanh nghiệp hiện tại"
+          subtitle="Bản tường thuật tự động từ KPI thực tế, phân khúc và cơ cấu kênh — không dùng số liệu tổng hợp."
         />
         {execSummary.length === 0 ? (
-          <EmptyState text="Summary will appear once data is loaded." />
+          <EmptyState text="Tóm tắt sẽ xuất hiện khi dữ liệu được tải xong." />
         ) : (
           <div className="exec-summary">
             {execSummary.map((p, i) => (
@@ -1516,36 +1480,36 @@ function OverviewPage({
       </Panel>
 
       <div className="kpi-grid">
-        <KPICard label="Total GMV" value={formatVND(totalGmv)} icon={<I.Money />} tone="brand" caption={top10Share != null ? `Top 10 KOC: ${formatPercent(top10Share)}` : undefined} />
-        <KPICard label="Video GMV" value={formatVND(videoGmv)} icon={<I.Video />} tone="blue" caption={totalGmv && videoGmv ? `${formatPercent(Number(videoGmv) / Number(totalGmv))} of total` : undefined} />
-        <KPICard label="LIVE GMV" value={formatVND(liveGmv)} icon={<I.Bolt />} tone="pink" caption={totalGmv && liveGmv ? `${formatPercent(Number(liveGmv) / Number(totalGmv))} of total` : undefined} />
-        <KPICard label="Orders" value={formatNumber(orders)} icon={<I.Cart />} tone="green" caption={aov ? `AOV ${formatVND(aov)}` : undefined} />
-        <KPICard label="Average Order Value" value={formatVND(aov)} icon={<I.Tag />} tone="amber" />
-        <KPICard label="Total KOC" value={formatNumber(totalKoc)} icon={<I.Users />} tone="brand" />
-        <KPICard label="Total Shop" value={formatNumber(totalShop)} icon={<I.Store />} tone="blue" />
-        <KPICard label="Total Product" value={formatNumber(totalProduct)} icon={<I.Box />} tone="pink" />
+        <KPICard label="Tổng GMV" value={formatVND(totalGmv)} icon={<I.Money />} tone="brand" caption={top10Share != null ? `Top 10 KOC: ${formatPercent(top10Share)}` : undefined} />
+        <KPICard label="GMV Video" value={formatVND(videoGmv)} icon={<I.Video />} tone="blue" caption={totalGmv && videoGmv ? `${formatPercent(Number(videoGmv) / Number(totalGmv))} của tổng` : undefined} />
+        <KPICard label="GMV LIVE" value={formatVND(liveGmv)} icon={<I.Bolt />} tone="pink" caption={totalGmv && liveGmv ? `${formatPercent(Number(liveGmv) / Number(totalGmv))} của tổng` : undefined} />
+        <KPICard label="Đơn hàng" value={formatNumber(orders)} icon={<I.Cart />} tone="green" caption={aov ? `AOV ${formatVND(aov)}` : undefined} />
+        <KPICard label="Giá trị đơn hàng TB" value={formatVND(aov)} icon={<I.Tag />} tone="amber" />
+        <KPICard label="Tổng KOC" value={formatNumber(totalKoc)} icon={<I.Users />} tone="brand" />
+        <KPICard label="Tổng Shop" value={formatNumber(totalShop)} icon={<I.Store />} tone="blue" />
+        <KPICard label="Tổng sản phẩm" value={formatNumber(totalProduct)} icon={<I.Box />} tone="pink" />
       </div>
 
       <div className="two-col-even">
         <Panel>
-          <SectionHeader eyebrow="Top Risks" title="What to defend against this week" subtitle="Auto-prioritised by the AI risk monitor — sourced from real metrics only." />
-          {risks.length === 0 ? <EmptyState text="No active risks." /> : <div className="alert-list">{risks.map((a, i) => <AlertCard key={i} alert={a} />)}</div>}
+          <SectionHeader eyebrow="Rủi ro chính" title="Những gì cần phòng ngừa trong tuần" subtitle="Ưu tiên tự động từ bộ giám sát rủi ro AI — dựa duy nhất trên dữ liệu thực." />
+          {risks.length === 0 ? <EmptyState text="Không có rủi ro đang hoạt động." /> : <div className="alert-list">{risks.map((a, i) => <AlertCard key={i} alert={a} />)}</div>}
         </Panel>
 
         <Panel>
-          <SectionHeader eyebrow="Top Opportunities" title="What to capture next" subtitle="Positive signals worth amplifying — extracted from operational data." />
-          {wins.length === 0 ? <EmptyState text="No opportunities detected yet." /> : <div className="alert-list">{wins.map((a, i) => <AlertCard key={i} alert={a} />)}</div>}
+          <SectionHeader eyebrow="Cơ hội chính" title="Những gì cần khai thác tiếp theo" subtitle="Tín hiệu tích cực cần nhân rộng — trích xuất từ dữ liệu vận hành." />
+          {wins.length === 0 ? <EmptyState text="Chưa phát hiện cơ hội nào." /> : <div className="alert-list">{wins.map((a, i) => <AlertCard key={i} alert={a} />)}</div>}
         </Panel>
       </div>
 
       <Panel className="command">
         <SectionHeader
-          eyebrow="Recommended Actions"
-          title="What the business should do next"
-          subtitle="Each card maps to a specific operational signal in the data. No card appears without an underlying real metric."
+          eyebrow="Hành động đề xuất"
+          title="Doanh nghiệp nên làm gì tiếp theo"
+          subtitle="Mỗi thẻ gắn với một tín hiệu vận hành cụ thể trong dữ liệu. Không có thẻ nào hiển thị nếu không có chỉ số thực tế nền tảng."
         />
         {recommendedActions.length === 0 ? (
-          <EmptyState text="No recommended actions — KPIs all within healthy ranges." />
+          <EmptyState text="Không có hành động đề xuất — KPI đều nằm trong khoảng an toàn." />
         ) : (
           <div className="ra-grid">
             {recommendedActions.map((r, i) => <RecommendedActionCard key={i} rec={r} />)}
@@ -1554,9 +1518,9 @@ function OverviewPage({
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="AI Recommendations" title="Next-best operational moves" subtitle="Recommended moves derived from concentration, channel-mix and activation analysis." />
+        <SectionHeader eyebrow="Đề xuất AI" title="Những động tác vận hành tối ưu tiếp theo" subtitle="Đề xuất từ phân tích trọng điểm, cơ cấu kênh và kích hoạt." />
         {recommendations.length === 0 ? (
-          <EmptyState text="No recommendations available." />
+          <EmptyState text="Không có đề xuất nào." />
         ) : (
           <div className="reco-list">
             {recommendations.slice(0, 4).map((r, i) => <RecommendationCard key={i} rec={r} />)}
@@ -1567,18 +1531,18 @@ function OverviewPage({
       <div className="two-col">
         <Panel>
           <SectionHeader
-            eyebrow="Creator Portfolio"
-            title="Revenue Dependency Across Top Creators"
-            subtitle="How concentrated is the platform on its strongest creators? Hover bars for the full creator name."
+            eyebrow="Danh mục nhà sáng tạo"
+            title="Phụ thuộc doanh thu ở nhà sáng tạo hàng đầu"
+            subtitle="Nền tảng đang tập trung vào nhà sáng tạo mạnh nhất đến mức nào? Di chuột lên thanh để xem tên đầy đủ." 
           />
           <HorizontalBar data={top10Gmv} nameKey="Tên nhà sáng tạo" valueKey="Doanh_thu" color="#7c5cff" height={400} />
         </Panel>
 
         <Panel>
           <SectionHeader
-            eyebrow="Portfolio Mix"
-            title="Creator Portfolio Segmentation"
-            subtitle="Distribution of creators across performance tiers — aggregated, never per-creator donut."
+            eyebrow="Cơ cấu danh mục"
+            title="Phân khúc danh mục nhà sáng tạo"
+            subtitle="Phân bố nhà sáng tạo theo tầng hiệu suất — tổng hợp, không phải biểu đồ donut từng người."
           />
           {segmentAgg.length === 0 ? (
             <EmptyState />
@@ -1600,7 +1564,7 @@ function OverviewPage({
                       <Cell key={row.segment} fill={SEGMENT_META[row.segment]?.color ?? '#7c5cff'} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(v: any, _n: any, p: any) => [`${formatNumber(v)} creators`, p?.payload?.segment]} />
+                  <Tooltip formatter={(v: any, _n: any, p: any) => [`${formatNumber(v)} nhà sáng tạo`, p?.payload?.segment]} />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
@@ -1611,9 +1575,9 @@ function OverviewPage({
 
       <Panel>
         <SectionHeader
-          eyebrow="Channels"
-          title="Channel Performance Distribution"
-          subtitle="Stacked GMV by channel for the top 12 creators — sorted by total revenue."
+          eyebrow="Kênh"
+          title="Phân bố hiệu suất theo kênh"
+          subtitle="GMV chồng theo kênh cho 12 nhà sáng tạo hàng đầu — sắp xếp theo tổng doanh thu."
         />
         <VideoLiveStackedBar data={topByTotalGmv(dashboard.videoLiveComparison, 12)} height={360} />
       </Panel>
@@ -1646,10 +1610,10 @@ function KocAnalyticsPage({ dashboard, metrics }: { dashboard: DashboardState; m
     if (single.length > 0) {
       recos.push({
         priority: 'P1',
-        area: 'KOC ops',
-        title: 'Reduce single-shop dependency',
-        impact: `${single.length} of top 10 creators sell from a single shop — high disruption risk if that shop pauses.`,
-        action: 'Match these creators with 2–3 backup shops in the same category within 14 days.',
+          area: 'Vận hành KOC',
+          title: 'Giảm phụ thuộc shop đơn lẻ',
+          impact: `${single.length} nhà sáng tạo trong top 10 bán chỉ qua một shop — rủi ro gián đoạn lớn nếu shop đó tạm ngưng.`,
+          action: 'Ghép những nhà sáng tạo này với 2–3 shop dự phòng trong cùng danh mục trong vòng 14 ngày.',
         status: 'recommended',
       });
     }
@@ -1657,10 +1621,10 @@ function KocAnalyticsPage({ dashboard, metrics }: { dashboard: DashboardState; m
     if (narrow.length > 0) {
       recos.push({
         priority: 'P2',
-        area: 'KOC ops',
-        title: 'Broaden product mix',
-        impact: `${narrow.length} top creators sell fewer than 30 products — limited cross-sell upside.`,
-        action: 'Recommend complementary SKUs based on order velocity and category overlap.',
+          area: 'Vận hành KOC',
+          title: 'Mở rộng bộ sản phẩm',
+          impact: `${narrow.length} nhà sáng tạo top bán dưới 30 sản phẩm — hạn chế cơ hội bán chéo.`,
+          action: 'Đề xuất SKU bổ sung dựa trên tốc độ đơn hàng và chồng lấn danh mục.',
         status: 'recommended',
       });
     }
@@ -1669,28 +1633,28 @@ function KocAnalyticsPage({ dashboard, metrics }: { dashboard: DashboardState; m
   return (
     <div className="grid">
       <div className="kpi-grid">
-        <KPICard label="Average GMV / KOC" value={formatVND(avgKoc)} icon={<I.Money />} tone="brand" />
-        <KPICard label="Top 1 share" value={formatPercent(top1Share)} icon={<I.Users />} tone="pink" />
-        <KPICard label="Top 3 share" value={formatPercent(top3Share)} icon={<I.Users />} tone="blue" />
-        <KPICard label="Top 10 share" value={formatPercent(top10Share)} icon={<I.Users />} tone="amber" />
+        <KPICard label="GMV TB / KOC" value={formatVND(avgKoc)} icon={<I.Money />} tone="brand" />
+        <KPICard label="Top 1 tỷ lệ" value={formatPercent(top1Share)} icon={<I.Users />} tone="pink" />
+        <KPICard label="Top 3 tỷ lệ" value={formatPercent(top3Share)} icon={<I.Users />} tone="blue" />
+        <KPICard label="Top 10 tỷ lệ" value={formatPercent(top10Share)} icon={<I.Users />} tone="amber" />
       </div>
 
       <Panel>
         <SectionHeader
-          eyebrow="Health score"
-          title="Top 10 KOC — AI Health Score & risk indicators"
-          subtitle="Score = creator GMV indexed against the strongest creator (100). Flags from So_shop, So_san_pham and So_don."
+          eyebrow="Điểm sức khoẻ"
+          title="Top 10 KOC — Điểm sức khoẻ AI & chỉ báo rủi ro"
+          subtitle="Điểm = GMV nhà sáng tạo chuẩn hoá so với nhà mạnh nhất (100). Cờ từ So_shop, So_san_pham và So_don."
         />
         <DataTable
           rows={top10}
           columns={[
             { key: '#', label: '#', render: (_r, i) => <span className="rank-pill">{i + 1}</span> },
-            { key: 'name', label: 'Creator', render: (r) => <span className="name">{String(r['Tên nhà sáng tạo'] ?? 'N/A')}</span> },
-            { key: 'health', label: 'Health', render: (r) => <HealthBar score={Number(r.healthScore)} /> },
+            { key: 'name', label: 'Nhà sáng tạo', render: (r) => <span className="name">{String(r['Tên nhà sáng tạo'] ?? 'N/A')}</span> },
+            { key: 'health', label: 'Sức khoẻ', render: (r) => <HealthBar score={Number(r.healthScore)} /> },
             { key: 'gmv', label: 'GMV', align: 'right', render: (r) => formatVNDFull(r.Doanh_thu) },
-            { key: 'orders', label: 'Orders', align: 'right', render: (r) => formatNumber(r.So_don) },
+            { key: 'orders', label: 'Đơn hàng', align: 'right', render: (r) => formatNumber(r.So_don) },
             { key: 'shops', label: 'Shops', align: 'right', render: (r) => formatNumber(r.So_shop) },
-            { key: 'products', label: 'Products', align: 'right', render: (r) => formatNumber(r.So_san_pham) },
+            { key: 'products', label: 'Sản phẩm', align: 'right', render: (r) => formatNumber(r.So_san_pham) },
             {
               key: 'risk',
               label: 'Risk flags',
@@ -1698,7 +1662,7 @@ function KocAnalyticsPage({ dashboard, metrics }: { dashboard: DashboardState; m
                 <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
                   {Array.isArray(r.healthFlags) && r.healthFlags.length > 0
                     ? r.healthFlags.map((f: string) => <span key={f} className="chip low">{f}</span>)
-                    : <span className="chip high">All clear</span>}
+                      : <span className="chip high">Không có rủi ro</span>}
                 </div>
               ),
             },
@@ -1707,24 +1671,24 @@ function KocAnalyticsPage({ dashboard, metrics }: { dashboard: DashboardState; m
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="Revenue Leaders" title="Revenue Dependency Across Top Creators" subtitle="Full creator names visible on hover; bars sorted descending by total GMV." />
+        <SectionHeader eyebrow="Lãnh đạo doanh thu" title="Phụ thuộc doanh thu ở nhà sáng tạo hàng đầu" subtitle="Tên đầy đủ nhà sáng tạo hiển thị khi di chuột; thanh sắp giảm dần theo GMV." />
         <HorizontalBar data={safeData(dashboard.top10KocGmv).slice(0, 10)} nameKey="Tên nhà sáng tạo" valueKey="Doanh_thu" color="#7c5cff" height={420} />
       </Panel>
 
       <div className="two-col-even">
         <Panel>
-          <SectionHeader eyebrow="Video Channel" title="Video Channel Leaders" subtitle="Creators driving the most revenue from short-form video content." />
+          <SectionHeader eyebrow="Kênh Video" title="Nhà sáng tạo dẫn đầu kênh Video" subtitle="Nhà sáng tạo tạo ra doanh thu nhiều nhất từ nội dung video ngắn." />
           <HorizontalBar data={safeData(dashboard.top10KocVideo).slice(0, 10)} nameKey="Tên nhà sáng tạo" valueKey="Doanh_thu" color="#22d3ee" height={380} />
         </Panel>
         <Panel>
-          <SectionHeader eyebrow="LIVE Channel" title="LIVE Channel Leaders" subtitle="Creators driving the most revenue from live commerce." />
+          <SectionHeader eyebrow="Kênh LIVE" title="Nhà sáng tạo dẫn đầu kênh LIVE" subtitle="Nhà sáng tạo tạo ra doanh thu nhiều nhất từ buôn bán trực tiếp." />
           <HorizontalBar data={safeData(dashboard.top10KocLive).slice(0, 10)} nameKey="Tên nhà sáng tạo" valueKey="Doanh_thu" color="#f472b6" height={380} />
         </Panel>
       </div>
 
       {recos.length > 0 && (
         <Panel>
-          <SectionHeader eyebrow="Operations" title="Recommended next actions" subtitle="Operational moves derived from the top-10 health scan." />
+          <SectionHeader eyebrow="Hoạt động" title="Hành động tiếp theo đề xuất" subtitle="Động tác vận hành lấy từ kiểm tra sức khoẻ top-10." />
           <div className="reco-list">{recos.map((r, i) => <RecommendationCard key={i} rec={r} />)}</div>
         </Panel>
       )}
@@ -1764,20 +1728,20 @@ function VideoLivePage({ dashboard, metrics }: { dashboard: DashboardState; metr
   if (highVideoBucket && highVideoBucket.count > 0) {
     recos.push({
       priority: 'P1',
-      area: 'Channel',
-      title: 'Convert video-only creators into hybrid LIVE',
-      impact: `${formatNumber(highVideoBucket.count)} creators are video-dominant — LIVE capacity untapped.`,
-      action: 'Launch LIVE academy + co-pilot booking automation for this cohort.',
+      area: 'Kênh',
+      title: 'Chuyển nhà sáng tạo chỉ Video thành hybrid LIVE',
+      impact: `${formatNumber(highVideoBucket.count)} nhà sáng tạo ưu thế video — khả năng LIVE vẫn chưa được khai thác.`,
+      action: 'Khởi động học viện LIVE và tự động đặt lịch dành cho nhóm này.',
       status: 'recommended',
     });
   }
   if (liveShare < 0.2 && totalChannel > 0) {
     recos.push({
       priority: 'P1',
-      area: 'Budget',
-      title: 'Re-allocate budget toward LIVE',
-      impact: `LIVE only contributes ${formatPercent(liveShare)} of channel GMV today.`,
-      action: 'Shift 20% of creator incentive budget into LIVE bookings, training and slot guarantees.',
+      area: 'Ngân sách',
+      title: 'Dịch ngân sách về LIVE',
+      impact: `LIVE chỉ đóng góp ${formatPercent(liveShare)} GMV kênh hiện tại.`,
+      action: 'Dịch 20% ngân sách kích cầu sang đặt lịch LIVE, đào tạo và cam kết slot.',
       status: 'recommended',
     });
   }
@@ -1785,23 +1749,23 @@ function VideoLivePage({ dashboard, metrics }: { dashboard: DashboardState; metr
   return (
     <div className="grid">
       <div className="kpi-grid">
-        <KPICard label="Video GMV" value={formatVND(videoGmv)} icon={<I.Video />} tone="blue" caption={`${formatPercent(videoShare)} of channel mix`} />
-        <KPICard label="LIVE GMV" value={formatVND(liveGmv)} icon={<I.Bolt />} tone="pink" caption={`${formatPercent(liveShare)} of channel mix`} />
-        <KPICard label="Video / LIVE ratio" value={ratio === null ? 'N/A' : `${ratio.toFixed(1)}×`} icon={<I.Trend />} tone="brand" caption="Video GMV ÷ LIVE GMV" />
+        <KPICard label="GMV Video" value={formatVND(videoGmv)} icon={<I.Video />} tone="blue" caption={`${formatPercent(videoShare)} trong cơ cấu kênh`} />
+        <KPICard label="GMV LIVE" value={formatVND(liveGmv)} icon={<I.Bolt />} tone="pink" caption={`${formatPercent(liveShare)} trong cơ cấu kênh`} />
+        <KPICard label="Tỷ lệ Video / LIVE" value={ratio === null ? 'N/A' : `${ratio.toFixed(1)}×`} icon={<I.Trend />} tone="brand" caption="GMV Video ÷ GMV LIVE" />
         <KPICard
-          label="LIVE-only creators"
+          label="Nhà sáng tạo chỉ LIVE"
           value={formatNumber(safeData(dashboard.videoLiveComparison).filter((r) => Number(r.Video_GMV ?? 0) === 0 && Number(r.Live_GMV ?? 0) > 0).length)}
           icon={<I.Users />}
           tone="amber"
-          caption="No video activity but selling on LIVE"
+          caption="Không có hoạt động video nhưng bán trên LIVE"
         />
       </div>
 
       <Panel>
         <SectionHeader
-          eyebrow="Channel Opportunity Matrix"
-          title="Where the channel budget should go next"
-          subtitle="Active creators (Total_GMV > 0) bucketed by Video and LIVE share — every quadrant carries a clear next move."
+          eyebrow="Ma trận cơ hội"
+          title="Ngân sách kênh nên đi đâu tiếp theo"
+          subtitle="Nhà sáng tạo đang hoạt động (Total_GMV > 0) được chia theo tỷ lệ Video và LIVE — mỗi ô đều có động tác tiếp theo rõ ràng."
         />
         {buckets.length === 0 ? (
           <EmptyState />
@@ -1817,16 +1781,16 @@ function VideoLivePage({ dashboard, metrics }: { dashboard: DashboardState; metr
 
       <Panel>
         <SectionHeader
-          eyebrow="Channel Performance"
-          title="Channel Performance Distribution — Top 15 Creators"
-          subtitle="Stacked GMV per creator, sorted by total revenue. Reveals where each creator's revenue concentrates."
+          eyebrow="Hiệu suất kênh"
+          title="Phân bố hiệu suất kênh — 15 nhà sáng tạo hàng đầu"
+          subtitle="GMV chồng theo nhà sáng tạo, sắp xếp theo tổng doanh thu. Hiện rõ nơi doanh thu từng nhà sáng tạo tập trung." 
         />
         <VideoLiveStackedBar data={topByTotal} height={460} />
       </Panel>
 
       {recos.length > 0 && (
         <Panel>
-          <SectionHeader eyebrow="AI strategy" title="Recommended budget & channel moves" subtitle="Auto-derived from the active-creator channel matrix." />
+          <SectionHeader eyebrow="Chiến lược AI" title="Đề xuất ngân sách & kênh" subtitle="Tự động sinh từ ma trận nhà sáng tạo đang hoạt động." />
           <div className="reco-list">{recos.map((r, i) => <RecommendationCard key={i} rec={r} />)}</div>
         </Panel>
       )}
@@ -1836,13 +1800,13 @@ function VideoLivePage({ dashboard, metrics }: { dashboard: DashboardState; metr
         <DataTable
           rows={topByTotal}
           columns={[
-            { key: 'name', label: 'Creator', render: (r) => <span className="name">{String(r['Tên nhà sáng tạo'] ?? 'N/A')}</span> },
-            { key: 'video', label: 'Video GMV', align: 'right', render: (r) => formatVNDFull(r.Video_GMV) },
-            { key: 'live', label: 'LIVE GMV', align: 'right', render: (r) => formatVNDFull(r.Live_GMV) },
-            { key: 'total', label: 'Total GMV', align: 'right', render: (r) => formatVNDFull(r.Total_GMV) },
-            { key: 'vshare', label: 'Video share', align: 'right', render: (r) => formatPercent(r.Video_share) },
-            { key: 'lshare', label: 'LIVE share', align: 'right', render: (r) => formatPercent(r.Live_share) },
-            { key: 'ratio', label: 'V/L ratio', align: 'right', render: (r) => r.Video_to_Live_Ratio == null ? 'N/A' : Number(r.Video_to_Live_Ratio).toFixed(2) },
+            { key: 'name', label: 'Nhà sáng tạo', render: (r) => <span className="name">{String(r['Tên nhà sáng tạo'] ?? 'N/A')}</span> },
+            { key: 'video', label: 'GMV Video', align: 'right', render: (r) => formatVNDFull(r.Video_GMV) },
+            { key: 'live', label: 'GMV LIVE', align: 'right', render: (r) => formatVNDFull(r.Live_GMV) },
+            { key: 'total', label: 'Tổng GMV', align: 'right', render: (r) => formatVNDFull(r.Total_GMV) },
+            { key: 'vshare', label: 'Tỷ lệ Video', align: 'right', render: (r) => formatPercent(r.Video_share) },
+            { key: 'lshare', label: 'Tỷ lệ LIVE', align: 'right', render: (r) => formatPercent(r.Live_share) },
+            { key: 'ratio', label: 'Tỷ lệ V/L', align: 'right', render: (r) => r.Video_to_Live_Ratio == null ? 'N/A' : Number(r.Video_to_Live_Ratio).toFixed(2) },
           ]}
         />
       </Panel>
@@ -1866,10 +1830,10 @@ function ChannelMatrixCell({
         <div className="kpi-icon" style={{ width: 32, height: 32 }}>{icon}</div>
       </div>
       <div className="count">{formatNumber(bucket.count)}</div>
-      <h4>{formatVND(bucket.totalGmv)} combined GMV</h4>
+      <h4>{formatVND(bucket.totalGmv)} GMV tổng cộng</h4>
       <ul>
         {bucket.examples.length === 0 ? (
-          <li>No creators in this quadrant.</li>
+          <li>Không có nhà sáng tạo trong ô này.</li>
         ) : (
           bucket.examples.map((ex) => (
             <li key={ex.name}>
@@ -1902,12 +1866,20 @@ function VideoLiveStackedBar({ data, height }: { data: RecordData[]; height: num
           <YAxis tick={{ fill: '#8a93b1', fontSize: 11 }} tickFormatter={(v: number) => formatVND(v)} />
           <Tooltip formatter={(v: any, name: any) => [formatVNDFull(v), name]} labelFormatter={(label: any) => `Creator: ${label}`} />
           <Legend />
-          <Bar dataKey="Video_GMV" stackId="a" name="Video GMV" fill="#22d3ee" />
-          <Bar dataKey="Live_GMV" stackId="a" name="LIVE GMV" fill="#7c5cff" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="Video_GMV" stackId="a" name="GMV Video" fill="#22d3ee" />
+          <Bar dataKey="Live_GMV" stackId="a" name="GMV LIVE" fill="#7c5cff" radius={[6, 6, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
   );
+}
+
+function translateSegmentLabel(segment: string) {
+  return String(segment)
+    .replace('High-performing KOC', 'KOC hiệu suất cao')
+    .replace('Medium-performing KOC', 'KOC hiệu suất trung bình')
+    .replace('Low-performing KOC', 'KOC hiệu suất thấp')
+    .replace('No-sales KOC', 'KOC không bán hàng');
 }
 
 // =====================================================================
@@ -1915,7 +1887,13 @@ function VideoLiveStackedBar({ data, height }: { data: RecordData[]; height: num
 // =====================================================================
 
 function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; metrics: Record<string, number | string> }) {
-  const agg = useMemo(() => aggregateSegments(dashboard.kocSegmentation), [dashboard.kocSegmentation]);
+  const agg = useMemo(
+    () => aggregateSegments(dashboard.kocSegmentation).map((row) => ({
+      ...row,
+      displaySegment: translateSegmentLabel(row.segment),
+    })),
+    [dashboard.kocSegmentation],
+  );
   const totalCount = agg.reduce((s, r) => s + r.count, 0);
   const totalGmv = agg.reduce((s, r) => s + r.gmv, 0);
 
@@ -1923,9 +1901,8 @@ function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; m
     <div className="grid">
       <Panel hero>
         <SectionHeader
-          eyebrow="Segmentation Strategy"
-          title="Creator Portfolio Segmentation"
-          subtitle="Aggregated across the entire creator base. Every segment carries a clear next-best action — no per-creator donut clutter."
+          title="Phân khúc danh mục nhà sáng tạo"
+          subtitle="Tổng hợp trên toàn bộ cơ sở nhà sáng tạo. Mỗi phân khúc mang hành động tiếp theo rõ ràng — không có biểu đồ donut từng nhà sáng tạo."
         />
         <div className="four-col">
           {agg.map((row) => {
@@ -1940,15 +1917,15 @@ function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; m
                 <div className="seg-head">
                   <div className="seg-icon"><I.Users /></div>
                   <div>
-                    <div className="seg-sub">{row.segment.replace(' KOC', '')}</div>
-                    <div className="seg-name">{formatNumber(row.count)} creators</div>
+                    <div className="seg-sub">{row.displaySegment}</div>
+                    <div className="seg-name">{formatNumber(row.count)} nhà sáng tạo</div>
                   </div>
                 </div>
                 <div className="seg-num">{formatPercent(totalCount > 0 ? row.count / totalCount : 0)}</div>
-                <div className="seg-row"><span>Total GMV</span><strong>{formatVND(row.gmv)}</strong></div>
-                <div className="seg-row"><span>GMV share</span><strong>{formatPercent(totalGmv > 0 ? row.gmv / totalGmv : 0)}</strong></div>
-                <div className="seg-row"><span>Avg per creator</span><strong>{row.count > 0 ? formatVND(row.gmv / row.count) : 'N/A'}</strong></div>
-                <div className="seg-action">→ {meta?.action ?? 'Review and tailor outreach.'}</div>
+                <div className="seg-row"><span>Tổng GMV</span><strong>{formatVND(row.gmv)}</strong></div>
+                <div className="seg-row"><span>Thị phần GMV</span><strong>{formatPercent(totalGmv > 0 ? row.gmv / totalGmv : 0)}</strong></div>
+                <div className="seg-row"><span>TB mỗi nhà sáng tạo</span><strong>{row.count > 0 ? formatVND(row.gmv / row.count) : 'N/A'}</strong></div>
+                <div className="seg-action">→ {meta?.action ?? 'Xem xét và điều chỉnh tiếp cận.'}</div>
               </div>
             );
           })}
@@ -1956,15 +1933,15 @@ function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; m
       </Panel>
 
       <div className="kpi-grid">
-        <KPICard label="High-performing" value={formatNumber(getMetricValue(metrics, 'High-performing KOC'))} icon={<I.Users />} tone="green" />
-        <KPICard label="Medium-performing" value={formatNumber(getMetricValue(metrics, 'Medium-performing KOC'))} icon={<I.Users />} tone="blue" />
-        <KPICard label="Low-performing" value={formatNumber(getMetricValue(metrics, 'Low-performing KOC'))} icon={<I.Users />} tone="amber" />
-        <KPICard label="No-sales" value={formatNumber(getMetricValue(metrics, 'No-sales KOC'))} icon={<I.Alert />} tone="red" />
+        <KPICard label="Hiệu suất cao" value={formatNumber(getMetricValue(metrics, 'High-performing KOC'))} icon={<I.Users />} tone="green" />
+        <KPICard label="Hiệu suất trung bình" value={formatNumber(getMetricValue(metrics, 'Medium-performing KOC'))} icon={<I.Users />} tone="blue" />
+        <KPICard label="Hiệu suất thấp" value={formatNumber(getMetricValue(metrics, 'Low-performing KOC'))} icon={<I.Users />} tone="amber" />
+        <KPICard label="Không bán hàng" value={formatNumber(getMetricValue(metrics, 'No-sales KOC'))} icon={<I.Alert />} tone="red" />
       </div>
 
       <div className="two-col-even">
         <Panel>
-          <SectionHeader eyebrow="Distribution" title="Creators per segment" subtitle="Aggregated count — by performance tier." />
+          <SectionHeader eyebrow="Phân bố" title="Số nhà sáng tạo theo phân khúc" subtitle="Tổng hợp số lượng — theo tầng hiệu suất." />
           {agg.length === 0 ? (
             <EmptyState />
           ) : (
@@ -1974,7 +1951,7 @@ function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; m
                   <CartesianGrid stroke="rgba(124,137,200,0.08)" vertical={false} />
                   <XAxis dataKey="segment" tick={{ fill: '#8a93b1', fontSize: 11 }} tickFormatter={(v: string) => shortLabel(v, 18)} />
                   <YAxis tick={{ fill: '#8a93b1', fontSize: 11 }} tickFormatter={formatNumber} />
-                  <Tooltip formatter={(v: any) => [formatNumber(v), 'Creators']} />
+                  <Tooltip formatter={(v: any) => [formatNumber(v), 'Nhà sáng tạo']} />
                   <Bar dataKey="count" radius={[8, 8, 0, 0]}>
                     {agg.map((row) => <Cell key={row.segment} fill={SEGMENT_META[row.segment]?.color ?? '#7c5cff'} />)}
                   </Bar>
@@ -1985,17 +1962,17 @@ function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; m
         </Panel>
 
         <Panel>
-          <SectionHeader eyebrow="Revenue" title="GMV by segment" subtitle="Total revenue contribution per performance tier." />
+          <SectionHeader eyebrow="Doanh thu" title="GMV theo phân khúc" subtitle="Đóng góp doanh thu tổng mỗi tầng hiệu suất." />
           {agg.length === 0 ? (
             <EmptyState />
           ) : (
             <div style={{ width: '100%', height: 360 }}>
               <ResponsiveContainer>
                 <PieChart>
-                  <Pie data={agg} dataKey="gmv" nameKey="segment" innerRadius={70} outerRadius={120} paddingAngle={3}>
+                  <Pie data={agg} dataKey="gmv" nameKey="displaySegment" innerRadius={70} outerRadius={120} paddingAngle={3}>
                     {agg.map((row) => <Cell key={row.segment} fill={SEGMENT_META[row.segment]?.color ?? '#7c5cff'} />)}
                   </Pie>
-                  <Tooltip formatter={(v: any, _n: any, p: any) => [formatVNDFull(v), p?.payload?.segment]} />
+                  <Tooltip formatter={(v: any, _n: any, p: any) => [formatVNDFull(v), p?.payload?.displaySegment]} />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
@@ -2005,16 +1982,16 @@ function SegmentationPage({ dashboard, metrics }: { dashboard: DashboardState; m
       </div>
 
       <Panel>
-        <SectionHeader eyebrow="Summary" title="Segment summary" subtitle="Counts and revenue contribution computed from koc_segmentation.json." />
+        <SectionHeader eyebrow="Tóm tắt" title="Tóm tắt phân khúc" subtitle="Số lượng và đóng góp doanh thu được tính từ koc_segmentation.json." />
         <DataTable
-          rows={agg}
+            rows={agg}
           columns={[
-            { key: 'segment', label: 'Segment', render: (r) => <SegmentChip segment={r.segment} /> },
-            { key: 'count', label: 'Creators', align: 'right', render: (r) => formatNumber(r.count) },
-            { key: 'pct', label: '% of total', align: 'right', render: (r) => totalCount > 0 ? formatPercent(r.count / totalCount) : 'N/A' },
-            { key: 'gmv', label: 'Total GMV', align: 'right', render: (r) => formatVNDFull(r.gmv) },
-            { key: 'avg', label: 'Avg / creator', align: 'right', render: (r) => r.count > 0 ? formatVND(r.gmv / r.count) : 'N/A' },
-            { key: 'action', label: 'Next-best action', render: (r) => SEGMENT_META[r.segment]?.action ?? 'N/A' },
+            { key: 'segment', label: 'Phân khúc', render: (r) => <SegmentChip segment={r.displaySegment ?? r.segment} /> },
+            { key: 'count', label: 'Nhà sáng tạo', align: 'right', render: (r) => formatNumber(r.count) },
+            { key: 'pct', label: '% tổng', align: 'right', render: (r) => totalCount > 0 ? formatPercent(r.count / totalCount) : 'N/A' },
+            { key: 'gmv', label: 'Tổng GMV', align: 'right', render: (r) => formatVNDFull(r.gmv) },
+            { key: 'avg', label: 'TB / nhà sáng tạo', align: 'right', render: (r) => r.count > 0 ? formatVND(r.gmv / r.count) : 'N/A' },
+            { key: 'action', label: 'Hành động tốt nhất tiếp theo', render: (r) => SEGMENT_META[r.segment]?.action ?? 'N/A' },
           ]}
         />
       </Panel>
@@ -2075,31 +2052,31 @@ function ShopAnalyticsPage({ dashboard, metrics }: { dashboard: DashboardState; 
       </div>
 
       <Panel>
-        <SectionHeader eyebrow="Top Performers" title="Shop Revenue Dependency — Top 10 Shops" subtitle="Sourced directly from top10_shop.json. Bars sorted descending by total GMV." />
+        <SectionHeader eyebrow="Người dẫn đầu" title="Phụ thuộc doanh thu shop — Top 10 shop" subtitle="Dữ liệu trực tiếp từ top10_shop.json. Thanh sắp giảm dần theo tổng GMV." />
         <HorizontalBar data={rows} nameKey="Tên cửa hàng" valueKey="Doanh_thu" color="#7c5cff" height={420} />
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="Shop dependency" title="Shop risk & creator coverage" subtitle="Low So_KOC = high disruption risk if that creator stops selling." />
+        <SectionHeader eyebrow="Phụ thuộc shop" title="Rủi ro shop & bao phủ nhà sáng tạo" subtitle="So_KOC thấp = rủi ro gián đoạn cao nếu nhà sáng tạo đó ngừng bán." />
         <DataTable
           rows={rows}
           columns={[
             { key: '#', label: '#', render: (_r, i) => <span className="rank-pill">{i + 1}</span> },
             { key: 'name', label: 'Shop', render: (r) => <span className="name">{String(r['Tên cửa hàng'] ?? 'N/A')}</span> },
             { key: 'gmv', label: 'GMV', align: 'right', render: (r) => formatVNDFull(r.Doanh_thu) },
-            { key: 'orders', label: 'Orders', align: 'right', render: (r) => formatNumber(r.So_don) },
+            { key: 'orders', label: 'Đơn hàng', align: 'right', render: (r) => formatNumber(r.So_don) },
             { key: 'koc', label: 'KOC', align: 'right', render: (r) => formatNumber(r.So_KOC) },
-            { key: 'products', label: 'Products', align: 'right', render: (r) => formatNumber(r.So_san_pham) },
+            { key: 'products', label: 'Sản phẩm', align: 'right', render: (r) => formatNumber(r.So_san_pham) },
             { key: 'avgKoc', label: 'GMV / KOC', align: 'right', render: (r) => formatVND(r.Avg_GMV_per_KOC) },
             {
               key: 'risk',
-              label: 'Risk',
+              label: 'Rủi ro',
               render: (r) => (
                 Number(r.So_KOC ?? 0) <= 2
-                  ? <span className="chip none">Fragile</span>
+                  ? <span className="chip none">Yếu</span>
                   : Number(r.So_KOC ?? 0) <= 20
-                    ? <span className="chip low">Watch</span>
-                    : <span className="chip high">Diversified</span>
+                    ? <span className="chip low">Theo dõi</span>
+                    : <span className="chip high">Đa dạng</span>
               ),
             },
           ]}
@@ -2151,36 +2128,36 @@ function ProductAnalyticsPage({ dashboard }: { dashboard: DashboardState }) {
   return (
     <div className="grid">
       <div className="kpi-grid">
-        <KPICard label="Top product GMV" value={top ? formatVND(top.Doanh_thu) : 'N/A'} icon={<I.Box />} tone="brand" caption={top ? String(top['Tên sản phẩm'] ?? '').slice(0, 60) : undefined} />
-        <KPICard label="Top 10 product GMV" value={formatVND(totalTopGmv)} icon={<I.Money />} tone="green" caption="Combined revenue of top 10" />
-        <KPICard label="Top product creators" value={top ? formatNumber(top.So_KOC) : 'N/A'} icon={<I.Users />} tone="pink" caption="Creator adoption for the #1 SKU" />
-        <KPICard label="#1 share of top-10" value={formatPercent(concentration)} icon={<I.Alert />} tone="amber" caption="Concentration on the hero product" />
+        <KPICard label="Sản phẩm hàng đầu GMV" value={top ? formatVND(top.Doanh_thu) : 'N/A'} icon={<I.Box />} tone="brand" caption={top ? String(top['Tên sản phẩm'] ?? '').slice(0, 60) : undefined} />
+        <KPICard label="GMV Top 10 sản phẩm" value={formatVND(totalTopGmv)} icon={<I.Money />} tone="green" caption="Tổng doanh thu của top 10" />
+        <KPICard label="Nhà sáng tạo sản phẩm hàng đầu" value={top ? formatNumber(top.So_KOC) : 'N/A'} icon={<I.Users />} tone="pink" caption="Số nhà sáng tạo bán SKU #1" />
+        <KPICard label="Tỷ lệ #1 của top-10" value={formatPercent(concentration)} icon={<I.Alert />} tone="amber" caption="Tập trung vào sản phẩm chủ lực" />
       </div>
 
       <Panel>
-        <SectionHeader eyebrow="Top Sellers" title="Product Concentration — Top 10 Products" subtitle="Real values from top10_product.json. Hover bar for the full product name." />
+        <SectionHeader eyebrow="Người bán hàng đầu" title="Tập trung sản phẩm — Top 10 sản phẩm" subtitle="Giá trị thực từ top10_product.json. Di chuột lên thanh để xem tên đầy đủ sản phẩm." />
         <HorizontalBar data={rows} nameKey="Tên sản phẩm" valueKey="Doanh_thu" color="#22d3ee" height={460} maxLabel={32} />
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="Adoption" title="Product performance & creator adoption" subtitle="So_KOC = number of creators selling the product. So_shop = listing footprint." />
+        <SectionHeader eyebrow="Áp dụng" title="Hiệu suất sản phẩm & độ phổ biến nhà sáng tạo" subtitle="So_KOC = số nhà sáng tạo bán sản phẩm. So_shop = số shop niêm yết." />
         <DataTable
           rows={rows}
           columns={[
             { key: '#', label: '#', render: (_r, i) => <span className="rank-pill">{i + 1}</span> },
-            { key: 'name', label: 'Product', render: (r) => <span className="name" style={{ display: 'inline-block', maxWidth: 360 }}>{String(r['Tên sản phẩm'] ?? 'N/A')}</span> },
+            { key: 'name', label: 'Sản phẩm', render: (r) => <span className="name" style={{ display: 'inline-block', maxWidth: 360 }}>{String(r['Tên sản phẩm'] ?? 'N/A')}</span> },
             { key: 'gmv', label: 'GMV', align: 'right', render: (r) => formatVNDFull(r.Doanh_thu) },
-            { key: 'orders', label: 'Orders', align: 'right', render: (r) => formatNumber(r.So_don) },
-            { key: 'koc', label: 'Creators', align: 'right', render: (r) => formatNumber(r.So_KOC) },
-            { key: 'shops', label: 'Shops', align: 'right', render: (r) => formatNumber(r.So_shop) },
-            { key: 'avgKoc', label: 'Avg GMV / KOC', align: 'right', render: (r) => formatVND(r.Avg_GMV_per_KOC) },
+            { key: 'orders', label: 'Đơn hàng', align: 'right', render: (r) => formatNumber(r.So_don) },
+            { key: 'koc', label: 'Nhà sáng tạo', align: 'right', render: (r) => formatNumber(r.So_KOC) },
+            { key: 'shops', label: 'Shop', align: 'right', render: (r) => formatNumber(r.So_shop) },
+            { key: 'avgKoc', label: 'TB GMV / KOC', align: 'right', render: (r) => formatVND(r.Avg_GMV_per_KOC) },
           ]}
         />
       </Panel>
 
       {recos.length > 0 && (
         <Panel>
-          <SectionHeader eyebrow="Strategy" title="Product recommendations" subtitle="Auto-suggested moves from concentration and adoption signals." />
+          <SectionHeader eyebrow="Chiến lược" title="Đề xuất sản phẩm" subtitle="Đề xuất hành động tự động từ tín hiệu tập trung và áp dụng." />
           <div className="reco-list">{recos.map((r, i) => <RecommendationCard key={i} rec={r} />)}</div>
         </Panel>
       )}
@@ -2202,26 +2179,26 @@ function AiCommandCenterPage({ commandItems, recommendations }: { commandItems: 
     <div className="grid">
       <Panel hero className="command">
         <SectionHeader
-          eyebrow="Operating Control Panel"
-          title="AI Command Center"
-          subtitle="One operational queue — every issue is paired with an AI recommendation, a suggested action and a status. Built from real metrics only."
+          eyebrow="Bảng điều khiển vận hành"
+          title="Trung tâm chỉ huy AI"
+          subtitle="Một hàng đợi vận hành — mỗi vấn đề được ghép với đề xuất AI, hành động đề xuất và trạng thái. Chỉ xây dựng từ các chỉ số thực tế."
         />
         <div className="four-col">
-          <KPICard label="P0 — Critical" value={formatNumber(p0)} icon={<I.Alert />} tone="red" caption="Act immediately" />
-          <KPICard label="P1 — Important" value={formatNumber(p1)} icon={<I.Bolt />} tone="amber" caption="Address this week" />
-          <KPICard label="P2 — Monitor" value={formatNumber(p2)} icon={<I.Eye />} tone="blue" caption="Track and revisit" />
-          <KPICard label="Open items" value={formatNumber(open)} icon={<I.Brain />} tone="brand" caption="Awaiting action" />
+          <KPICard label="P0 — Cực kỳ quan trọng" value={formatNumber(p0)} icon={<I.Alert />} tone="red" caption="Hành động ngay" />
+          <KPICard label="P1 — Quan trọng" value={formatNumber(p1)} icon={<I.Bolt />} tone="amber" caption="Giải quyết trong tuần" />
+          <KPICard label="P2 — Giám sát" value={formatNumber(p2)} icon={<I.Eye />} tone="blue" caption="Theo dõi và xem lại" />
+          <KPICard label="Mục mở" value={formatNumber(open)} icon={<I.Brain />} tone="brand" caption="Đang chờ hành động" />
         </div>
       </Panel>
 
       <Panel>
         <SectionHeader
-          eyebrow="Live Operating Queue"
-          title="Issues, AI Recommendations & Suggested Actions"
-          subtitle="Auto-built from real KPIs, segmentation and channel data. Each card carries the data signal it was derived from."
+          eyebrow="Hàng đợi vận hành trực tiếp"
+          title="Vấn đề, đề xuất AI & hành động đề xuất"
+          subtitle="Tự xây dựng từ KPI thực tế, phân khúc và dữ liệu kênh. Mỗi thẻ chứa tín hiệu dữ liệu mà nó được tạo ra từ đó."
         />
         {commandItems.length === 0 ? (
-          <EmptyState text="No issues detected — the operating model is healthy." />
+          <EmptyState text="Không phát hiện vấn đề — mô hình vận hành đang lành mạnh." />
         ) : (
           <div className="command-grid">
             {commandItems.map((item, i) => <CommandCard key={i} item={item} />)}
@@ -2232,9 +2209,9 @@ function AiCommandCenterPage({ commandItems, recommendations }: { commandItems: 
       {recommendations.length > 0 && (
         <Panel>
           <SectionHeader
-            eyebrow="Next-best Actions"
-            title="Standalone AI Recommendations"
-            subtitle="Curated operational moves tied to specific business levers — sortable by priority."
+            eyebrow="Hành động tốt nhất tiếp theo"
+            title="Đề xuất AI độc lập"
+            subtitle="Các động tác vận hành được tuyển chọn, gắn với các đòn bẩy kinh doanh cụ thể — có thể sắp theo độ ưu tiên."
           />
           <div className="reco-list">{recommendations.map((r, i) => <RecommendationCard key={i} rec={r} />)}</div>
         </Panel>
@@ -2255,33 +2232,33 @@ function StrategicRecommendationsPage({ recs }: { recs: StrategicRecommendation[
   return (
     <div className="grid">
       <div className="demo-labels">
-        <span className="demo-chip"><span className="ico"><I.Shield /></span>Real-data only</span>
-        <span className="demo-chip"><span className="ico"><I.Check /></span>No synthetic numbers</span>
-        <span className="demo-chip"><span className="ico"><I.Brain /></span>AI recommendations derived from operational metrics</span>
+        <span className="demo-chip"><span className="ico"><I.Shield /></span>Chỉ số liệu thực tế</span>
+        <span className="demo-chip"><span className="ico"><I.Check /></span>Không có số liệu tổng hợp</span>
+        <span className="demo-chip"><span className="ico"><I.Brain /></span>Đề xuất AI dựa trên chỉ số vận hành</span>
       </div>
 
       <Panel hero>
         <SectionHeader
-          eyebrow="Decision Intelligence"
-          title="AI Strategic Recommendations"
-          subtitle="Premium recommendations tied to specific operational signals. Each card is only rendered when the underlying real metric satisfies a strategic rule — no card without a signal."
+          eyebrow="Trí tuệ quyết định"
+          title="Đề xuất chiến lược AI"
+          subtitle="Đề xuất cao cấp gắn với tín hiệu vận hành cụ thể. Mỗi thẻ chỉ hiển thị khi chỉ số thực tế nền tảng thỏa mãn quy tắc chiến lược — không có thẻ nếu không có tín hiệu."
         />
         <div className="four-col">
-          <KPICard label="Total recommendations" value={formatNumber(recs.length)} icon={<I.Brain />} tone="brand" caption="All derived from real KPIs" />
-          <KPICard label="P0 — critical" value={formatNumber(p0)} icon={<I.Alert />} tone="red" caption="Act immediately" />
-          <KPICard label="P1 — important" value={formatNumber(p1)} icon={<I.Bolt />} tone="amber" caption="Address this week" />
-          <KPICard label="P2 — monitor" value={formatNumber(p2)} icon={<I.Eye />} tone="blue" caption="Track and revisit" />
+          <KPICard label="Tổng đề xuất" value={formatNumber(recs.length)} icon={<I.Brain />} tone="brand" caption="Tất cả trích xuất từ KPI thực tế" />
+          <KPICard label="P0 — Cực kỳ quan trọng" value={formatNumber(p0)} icon={<I.Alert />} tone="red" caption="Hành động ngay" />
+          <KPICard label="P1 — Quan trọng" value={formatNumber(p1)} icon={<I.Bolt />} tone="amber" caption="Giải quyết trong tuần" />
+          <KPICard label="P2 — Giám sát" value={formatNumber(p2)} icon={<I.Eye />} tone="blue" caption="Theo dõi và xem lại" />
         </div>
       </Panel>
 
       <Panel>
         <SectionHeader
-          eyebrow="Strategic Moves"
-          title="What the business should do next — in priority order"
-          subtitle="Each recommendation carries the underlying data signal it was derived from. Hover the chip to see the source domain."
+          eyebrow="Động tác chiến lược"
+          title="Doanh nghiệp nên làm gì tiếp theo — theo thứ tự ưu tiên"
+          subtitle="Mỗi đề xuất mang tín hiệu dữ liệu nền tảng của nó. Di chuột lên chip để xem miền nguồn."
         />
         {recs.length === 0 ? (
-          <EmptyState text="No strategic recommendations — KPIs all within healthy ranges." />
+          <EmptyState text="Không có đề xuất chiến lược — tất cả KPI đều trong phạm vi lành mạnh." />
         ) : (
           <div className="strategic-grid">
             {recs.map((r, i) => <StrategicRecommendationCard key={i} rec={r} />)}
@@ -2302,12 +2279,12 @@ function AiInsightsPage({ dashboard }: { dashboard: DashboardState }) {
     <div className="grid">
       <Panel hero>
         <SectionHeader
-          eyebrow="AI Business Intelligence"
-          title="From raw observation to executive action"
-          subtitle="Every line from insights.json is enriched with business meaning, risk, opportunity and a concrete next move. No content is invented."
+          eyebrow="Trí tuệ kinh doanh AI"
+          title="Từ quan sát thô đến hành động điều hành"
+          subtitle="Mỗi dòng trong insights.json được làm giàu bằng ý nghĩa kinh doanh, rủi ro, cơ hội và hành động tiếp theo cụ thể. Không tạo nội dung thêm."
         />
         {rows.length === 0 ? (
-          <EmptyState text="No insights available." />
+          <EmptyState text="Chưa có insight." />
         ) : (
           <div className="insight-grid">
             {rows.map((row, i) => {
@@ -2329,34 +2306,34 @@ function AiInsightsPage({ dashboard }: { dashboard: DashboardState }) {
 function AutomationPage() {
   const rows = [
     {
-      before: 'Manual KOC checking',
-      after: 'AI scoring engine across the full creator base',
-      impact: 'Time saved: ~85% per review cycle',
-      detail: 'Score 6,000+ creators on GMV, orders, channel mix and shop diversity in seconds.',
+      before: 'Kiểm tra KOC thủ công',
+      after: 'Động cơ chấm điểm AI cho toàn bộ nhà sáng tạo',
+      impact: 'Tiết kiệm thời gian: ~85% mỗi chu kỳ đánh giá',
+      detail: 'Chấm điểm 6,000+ nhà sáng tạo về GMV, đơn hàng, cơ cấu kênh và đa dạng shop trong vài giây.',
     },
     {
-      before: 'Manual report writing',
-      after: 'AI-generated narrative reporting',
-      impact: 'Speed: 5× faster cadence, consistent tone',
-      detail: 'Weekly executive narrative, channel mix and risk summary drafted automatically.',
+      before: 'Viết báo cáo thủ công',
+      after: 'Báo cáo tường thuật do AI tạo',
+      impact: 'Tốc độ: nhanh gấp 5×, giọng điệu nhất quán',
+      detail: 'Bản tường thuật điều hành hàng tuần, cơ cấu kênh và tóm tắt rủi ro soạn tự động.',
     },
     {
-      before: 'Manual follow-up via spreadsheet',
-      after: 'AI/Zalo chatbot for outreach',
-      impact: 'Touchpoints: +3×, response rate +40%',
-      detail: 'Personalised nudges by segment, performance trend and product fit.',
+      before: 'Theo dõi bằng bảng tính thủ công',
+      after: 'Chatbot AI/Zalo cho tiếp cận',
+      impact: 'Số điểm tiếp xúc: +3×, tỷ lệ phản hồi +40%',
+      detail: 'Nhắc nhở Cá nhân hóa theo phân khúc, xu hướng hiệu suất và phù hợp sản phẩm.',
     },
     {
-      before: 'Manual performance tracking',
-      after: 'Realtime monitoring with smart alerts',
-      impact: 'Reaction time: hours → minutes',
-      detail: 'Concentration, channel and inactive-cohort risk monitored continuously.',
+      before: 'Theo dõi hiệu suất thủ công',
+      after: 'Giám sát thời gian thực với cảnh báo thông minh',
+      impact: 'Thời gian phản ứng: giờ → phút',
+      detail: 'Tập trung, kênh và rủi ro nhóm không hoạt động được giám sát liên tục.',
     },
     {
-      before: 'Manual KOC selection',
-      after: 'AI recommendation engine',
-      impact: 'Campaign ROI: estimated 2× lift',
-      detail: 'Creator-product matching using order velocity, segment and shop adoption.',
+      before: 'Lựa chọn KOC thủ công',
+      after: 'Động cơ đề xuất AI',
+      impact: 'ROI chiến dịch: tăng ~2×',
+      detail: 'Ghép nhà sáng tạo với sản phẩm dựa trên tốc độ đơn hàng, phân khúc và áp dụng shop.',
     },
   ];
 
@@ -2364,27 +2341,27 @@ function AutomationPage() {
     <div className="grid">
       <Panel hero>
         <SectionHeader
-          eyebrow="Automation roadmap"
-          title="Before vs After — AI-first operations"
-          subtitle="Concrete replacements for manual KOC operations, with the business impact each one unlocks."
+          eyebrow="Lộ trình tự động hoá"
+          title="Trước và Sau — Vận hành ưu tiên AI"
+          subtitle="Những thay thế cụ thể cho hoạt động KOC thủ công, cùng tác động kinh doanh mà mỗi thay đổi mang lại."
         />
         <div className="three-col">
-          <KPICard label="Hours saved / week" value="120+" icon={<I.Bolt />} tone="brand" caption="Across reporting, vetting, follow-up" />
-          <KPICard label="Manual touchpoints removed" value="80%" icon={<I.Zap />} tone="green" caption="Of recurring ops work" />
-          <KPICard label="Decision speed" value="5× faster" icon={<I.Brain />} tone="pink" caption="Realtime alerts vs weekly reports" />
+          <KPICard label="Giờ tiết kiệm / tuần" value="120+" icon={<I.Bolt />} tone="brand" caption="Trên báo cáo, đánh giá, theo dõi" />
+          <KPICard label="Điểm tiếp xúc thủ công loại bỏ" value="80%" icon={<I.Zap />} tone="green" caption="Trong công việc vận hành định kỳ" />
+          <KPICard label="Tốc độ quyết định" value="5× nhanh hơn" icon={<I.Brain />} tone="pink" caption="Thông báo thời gian thực so với báo cáo hàng tuần" />
         </div>
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="Replacements" title="Manual process → AI replacement" subtitle="Side-by-side breakdown of the operational transformation." />
+        <SectionHeader eyebrow="Thay thế" title="Quy trình thủ công → Thay thế AI" subtitle="Phân tích đối chiếu chuyển đổi vận hành." />
         <div className="table-wrap auto-table">
           <table className="data-table">
             <thead>
               <tr>
-                <th>Manual process</th>
-                <th>AI replacement</th>
-                <th>Business impact</th>
-                <th>Detail</th>
+                <th>Quy trình thủ công</th>
+                <th>Thay thế AI</th>
+                <th>Tác động kinh doanh</th>
+                <th>Chi tiết</th>
               </tr>
             </thead>
             <tbody>
@@ -2418,92 +2395,92 @@ function WorkflowPage() {
     value: string;
   }[] = [
     {
-      title: 'Data Collection',
+      title: 'Thu thập dữ liệu',
       icon: <I.Database />,
       status: 'Live',
-      happens: 'Real-time pulls of GMV, orders and creator metadata across every shop and channel.',
-      ai: 'Cleanses, deduplicates and enriches the raw exports into a canonical dataset.',
-      value: 'One trustworthy source of truth — no spreadsheet reconciliation.',
+      happens: 'Kéo GMV, đơn hàng và metadata nhà sáng tạo theo thời gian thực cho mọi shop và kênh.',
+      ai: 'Làm sạch, gỡ trùng và làm giàu dữ liệu thô thành bộ dữ liệu chính thống.',
+      value: 'Một nguồn dữ liệu tin cậy — không cần đối chiếu bảng tính.',
     },
     {
-      title: 'AI Scoring',
+      title: 'Chấm điểm AI',
       icon: <I.Brain />,
       status: 'Live',
-      happens: 'Every creator is scored continuously on GMV, orders, channel mix and shop coverage.',
-      ai: 'Auto-tiers creators into High / Medium / Low / No-sales segments.',
-      value: 'Faster and more consistent talent decisions, with no analyst gating.',
+      happens: 'Mỗi nhà sáng tạo được chấm điểm liên tục theo GMV, đơn hàng, cơ cấu kênh và phủ shop.',
+      ai: 'Tự động phân hạng nhà sáng tạo thành Cao / Trung bình / Thấp / Không bán.',
+      value: 'Quyết định nhân sự nhanh hơn và nhất quán hơn, không cần analyst can thiệp.',
     },
     {
-      title: 'Auto Matching',
+      title: 'Ghép tự động',
       icon: <I.Match />,
       status: 'Building',
-      happens: 'Each creator is paired with the right shops and products.',
-      ai: 'Recommendation engine matches by category fit, order velocity and segment.',
-      value: 'Higher campaign ROI and less wasted creator-product mismatch.',
+      happens: 'Mỗi nhà sáng tạo được ghép với shop và sản phẩm phù hợp.',
+      ai: 'Động cơ đề xuất ghép theo phù hợp danh mục, tốc độ đơn hàng và phân khúc.',
+      value: 'ROI chiến dịch cao hơn và ít lãng phí do ghép sai sản phẩm.',
     },
     {
-      title: 'Auto Outreach',
+      title: 'Tiếp cận tự động',
       icon: <I.Send />,
       status: 'Building',
-      happens: 'Personalised messages and offers are dispatched to creators.',
-      ai: 'Drafts and schedules cadences across Zalo and email by segment and trend.',
-      value: 'More touchpoints, better response rates, no manual coordination.',
+      happens: 'Tin nhắn và ưu đãi cá nhân hóa được gửi đến nhà sáng tạo.',
+      ai: 'Soạn và lên lịch chuỗi tiếp cận qua Zalo và email theo phân khúc và xu hướng.',
+      value: 'Tăng số điểm tiếp xúc, cải thiện tỷ lệ phản hồi, không cần phối hợp thủ công.',
     },
     {
-      title: 'Realtime Tracking',
+      title: 'Giám sát thời gian thực',
       icon: <I.Eye />,
       status: 'Live',
-      happens: 'KPIs are monitored continuously across video and LIVE channels.',
-      ai: 'Detects concentration drift, channel under-penetration and inactive cohorts.',
-      value: 'Reaction time drops from weeks to minutes.',
+      happens: 'KPIs được theo dõi liên tục trên kênh video và LIVE.',
+      ai: 'Phát hiện lệch tập trung, kênh chưa thâm nhập và nhóm không hoạt động.',
+      value: 'Thời gian phản ứng giảm từ vài tuần xuống vài phút.',
     },
     {
-      title: 'AI Insights',
+      title: 'Insight AI',
       icon: <I.Spark />,
       status: 'Live',
-      happens: 'Operational insights are derived from the data continuously.',
-      ai: 'Tags each insight with risk, opportunity and recommended action.',
-      value: 'Executives skim — they no longer need to interpret raw numbers.',
+      happens: 'Insight vận hành được trích xuất liên tục từ dữ liệu.',
+      ai: 'Gắn mỗi insight với rủi ro, cơ hội và hành động khuyến nghị.',
+      value: 'Lãnh đạo chỉ cần lướt qua — không cần tự dịch số liệu thô.',
     },
     {
-      title: 'Auto Reporting',
+      title: 'Báo cáo tự động',
       icon: <I.Doc />,
       status: 'Roadmap',
-      happens: 'Weekly executive briefs are delivered to leadership.',
-      ai: 'Drafts narrative reports directly from real metrics and AI commentary.',
-      value: 'Consistent tone, zero analyst lift, instant cadence.',
+      happens: 'Bản tóm tắt điều hành hàng tuần được gửi cho lãnh đạo.',
+      ai: 'Soạn báo cáo tường thuật trực tiếp từ chỉ số thực và bình luận AI.',
+      value: 'Giọng điệu nhất quán, không cần analyst, tốc độ tức thời.',
     },
   ];
 
   const currentState = [
-    { label: 'Manual creator checking', detail: 'Analysts vet creators by hand on shared spreadsheets — slow, inconsistent and unscalable.' },
-    { label: 'Manual outreach', detail: 'Outreach is one-by-one with no segmentation logic — touchpoints drop off after first contact.' },
-    { label: 'Manual reporting', detail: 'Weekly reports written by hand — narrative quality depends on the analyst on shift.' },
-    { label: 'Manual performance tracking', detail: 'GMV is reconciled across video and LIVE manually after the fact — reaction time measured in days.' },
-    { label: 'Reactive decision-making', detail: 'Decisions arrive only after a downturn is visible in weekly numbers.' },
+    { label: 'Kiểm tra nhà sáng tạo thủ công', detail: 'Nhân viên phân tích xét duyệt nhà sáng tạo bằng tay trên bảng tính chia sẻ — chậm, không nhất quán và khó mở rộng.' },
+    { label: 'Tiếp cận thủ công', detail: 'Tiếp cận từng người một mà không có logic phân khúc — các điểm tiếp xúc giảm mạnh sau lần đầu tiên.' },
+    { label: 'Báo cáo thủ công', detail: 'Báo cáo hàng tuần viết tay — chất lượng tường thuật phụ thuộc vào nhân viên phân tích trực ca.' },
+    { label: 'Theo dõi hiệu suất thủ công', detail: 'GMV được đối chiếu giữa video và LIVE bằng tay sau khi sự việc xảy ra — thời gian phản ứng tính bằng ngày.' },
+    { label: 'Ra quyết định phản ứng', detail: 'Quyết định chỉ đến sau khi xu hướng giảm xuất hiện trong số liệu hàng tuần.' },
   ];
 
   const futureState = [
-    { label: 'AI creator scoring', detail: 'Continuously scores the entire creator base on GMV, orders, channel mix and shop coverage.' },
-    { label: 'Auto creator matching', detail: 'Recommendation engine pairs creators with shops and products by category fit and order velocity.' },
-    { label: 'Auto outreach workflow', detail: 'Personalised cadences trigger automatically by segment, performance trend and product launches.' },
-    { label: 'Realtime monitoring', detail: 'Concentration, channel and inactivity risks raise alerts within minutes — not days.' },
-    { label: 'AI-generated recommendations', detail: 'Each operational signal is paired with a prioritised next-best action.' },
-    { label: 'Executive intelligence reporting', detail: 'Narrative briefs auto-drafted each cycle from real metrics and AI commentary — consistent tone.' },
+    { label: 'Đánh giá nhà sáng tạo bằng AI', detail: 'Liên tục chấm điểm toàn bộ cơ sở nhà sáng tạo trên GMV, đơn hàng, cơ cấu kênh và phủ sóng shop.' },
+    { label: 'Ghép nhà sáng tạo tự động', detail: 'Động cơ đề xuất ghép nhà sáng tạo với shop và sản phẩm theo phù hợp danh mục và tốc độ đơn hàng.' },
+    { label: 'Luồng tiếp cận tự động', detail: 'Các chuỗi tiếp cận cá nhân hoá kích hoạt tự động theo phân khúc, xu hướng hiệu suất và ra mắt sản phẩm.' },
+    { label: 'Giám sát thời gian thực', detail: 'Các rủi ro tập trung, kênh và không hoạt động cảnh báo trong vài phút — không phải vài ngày.' },
+    { label: 'Đề xuất sinh ra bởi AI', detail: 'Mỗi tín hiệu vận hành được ghép với hành động tốt nhất tiếp theo theo thứ tự ưu tiên.' },
+    { label: 'Báo cáo thông minh cho lãnh đạo', detail: 'Bản tóm tắt tường thuật tự động mỗi chu kỳ từ chỉ số thực và bình luận AI — giọng điệu nhất quán.' },
   ];
 
   return (
     <div className="grid">
       <div className="demo-labels">
-        <span className="demo-chip"><span className="ico"><I.Shield /></span>Real-data only</span>
-        <span className="demo-chip"><span className="ico"><I.Database /></span>Powered by processed company Excel</span>
+        <span className="demo-chip"><span className="ico"><I.Shield /></span>Chỉ số dữ liệu thực</span>
+        <span className="demo-chip"><span className="ico"><I.Database /></span>Chạy trên Excel công ty đã xử lý</span>
       </div>
 
       <Panel hero>
         <SectionHeader
-          eyebrow="Transformation Roadmap"
-          title="From manual operations → AI-first KOC commerce"
-          subtitle="A seven-step operating model that compounds: each stage feeds the next with cleaner, higher-leverage signal."
+          eyebrow="Lộ trình chuyển đổi"
+          title="Từ vận hành thủ công → Kinh doanh KOC ưu tiên AI"
+          subtitle="Mô hình vận hành 7 bước có tác dụng cộng dồn: mỗi giai đoạn nuôi dưỡng giai đoạn tiếp theo bằng tín hiệu sạch hơn, có giá trị cao hơn."
         />
         <div className="workflow">
           {steps.map((s, i) => (
@@ -2516,20 +2493,20 @@ function WorkflowPage() {
                 <h4>{s.title}</h4>
                 <div className="step-detail">
                   <div className="row">
-                    <span className="key">What happens</span>
+                    <span className="key">Điều gì xảy ra</span>
                     <span className="val">{s.happens}</span>
                   </div>
                   <div className="row">
-                    <span className="key">AI automates</span>
+                    <span className="key">AI tự động hoá</span>
                     <span className="val">{s.ai}</span>
                   </div>
                   <div className="row">
-                    <span className="key">Business value</span>
+                    <span className="key">Giá trị kinh doanh</span>
                     <span className="val">{s.value}</span>
                   </div>
                 </div>
                 <div className={`step-status ${s.status === 'Building' ? 'building' : s.status === 'Roadmap' ? 'roadmap' : ''}`}>
-                  <span className="dot" /> {s.status}
+                  <span className="dot" /> {s.status === 'Live' ? 'Đang hoạt động' : s.status === 'Building' ? 'Đang xây dựng' : 'Lộ trình'}
                 </div>
               </div>
               {i < steps.length - 1 && <div className="workflow-arrow"><I.Arrow /></div>}
@@ -2541,9 +2518,9 @@ function WorkflowPage() {
       <div className="two-col-even">
         <Panel>
           <SectionHeader
-            eyebrow="Current State"
-            title="Manual operating model — what it costs"
-            subtitle="Today's workflow is bound by human throughput. Time is lost on tasks that machines can run continuously."
+            eyebrow="Trạng thái hiện tại"
+            title="Mô hình vận hành thủ công — chi phí là gì"
+            subtitle="Luồng công việc hôm nay bị giới hạn bởi năng suất con người. Thời gian bị lãng phí cho các nhiệm vụ máy có thể chạy liên tục."
           />
           <div className="workflow-current">
             {currentState.map((p) => (
@@ -2560,9 +2537,9 @@ function WorkflowPage() {
 
         <Panel>
           <SectionHeader
-            eyebrow="AI-first Future State"
-            title="What the new operating model delivers"
-            subtitle="Each replacement is already partially live in this dashboard — sourced from real operational metrics."
+            eyebrow="Trạng thái tương lai ưu tiên AI"
+            title="Mô hình vận hành mới mang lại gì"
+            subtitle="Mỗi thay thế đã phần nào hoạt động trong dashboard này — nguồn từ chỉ số vận hành thực tế."
           />
           <div className="workflow-future">
             {futureState.map((g) => (
@@ -2611,9 +2588,9 @@ function DataQualityPage({
     <div className="grid">
       <Panel hero>
         <SectionHeader
-          eyebrow="Trust"
-          title="Data trust score"
-          subtitle="Composite of source completeness, record counts and load success — drives confidence in every other page."
+          eyebrow="Tin cậy"
+          title="Điểm tin cậy dữ liệu"
+          subtitle="Hợp thành từ độ đầy đủ nguồn, số lượng bản ghi và tải thành công — tạo niềm tin cho mọi trang khác."
         />
         <div className="trust-score">
           <div
@@ -2627,19 +2604,19 @@ function DataQualityPage({
           </div>
           <div>
             <div style={{ fontSize: 14, color: '#fff', fontWeight: 600 }}>
-              {entries.filter((e) => e.records > 0).length} of {entries.length} sources loaded successfully
+              {entries.filter((e) => e.records > 0).length} trên {entries.length} nguồn tải thành công
             </div>
             <p style={{ margin: '6px 0 0', color: '#b5bdd6', fontSize: 13, lineHeight: 1.55 }}>
               {trust === 100
-                ? 'All KPIs, charts and recommendations are based on a complete data set.'
-                : 'Some metrics may show N/A — verify the missing sources in the table below.'}
+                ? 'Tất cả KPI, biểu đồ và đề xuất dựa trên bộ dữ liệu hoàn chỉnh.'
+                : 'Một số chỉ số có thể hiển thị N/A — kiểm tra các nguồn thiếu trong bảng bên dưới.'}
             </p>
           </div>
         </div>
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="Sources" title="Sheet & JSON load status" subtitle="Every file used by the dashboard with its record count." />
+        <SectionHeader eyebrow="Nguồn dữ liệu" title="Trạng thái tải Sheet & JSON" subtitle="Mỗi file được dashboard sử dụng cùng số lượng bản ghi." />
         <div className="quality-grid">
           {entries.map((e) => {
             const ready = e.records > 0;
@@ -2647,7 +2624,7 @@ function DataQualityPage({
               <div key={e.filename} className={`quality-card ${ready ? 'ready' : 'missing'}`}>
                 <div>
                   <div className="quality-name">{e.filename}</div>
-                  <div className="quality-meta">{ready ? `${formatNumber(e.records)} records` : 'No records loaded'}</div>
+                  <div className="quality-meta">{ready ? `${formatNumber(e.records)} bản ghi` : 'Chưa tải được bản ghi nào'}</div>
                 </div>
                 <div className={`quality-status ${ready ? 'ok' : 'err'}`}>{ready ? '✓' : '!'}</div>
               </div>
@@ -2657,26 +2634,26 @@ function DataQualityPage({
       </Panel>
 
       <Panel>
-        <SectionHeader eyebrow="Checks" title="Missing / invalid data warnings" subtitle="Derived directly from the JSON payloads — surfaces N/A rows that the rest of the UI handles gracefully." />
+        <SectionHeader eyebrow="Kiểm tra" title="Cảnh báo dữ liệu thiếu / không hợp lệ" subtitle="Trực tiếp từ payload JSON — hiển thị các dòng N/A mà phần còn lại của UI xử lý mềm mại." />
         <DataTable
           rows={[
-            { check: 'Creators tracked in segmentation', value: totalKocSeg, status: totalKocSeg > 0 ? 'high' : 'none' },
-            { check: 'Creators with zero LIVE GMV', value: zeroLiveCount, status: 'low', note: 'Cannot compute Video/LIVE ratio' },
-            { check: 'Rows with N/A Video/LIVE ratio', value: nanRatio, status: 'low', note: 'Handled — shown as “N/A”' },
-            { check: 'Failed JSON loads', value: loadWarnings.length, status: loadWarnings.length === 0 ? 'high' : 'none', note: loadWarnings.length === 0 ? 'All good' : 'See warnings below' },
+            { check: 'Nhà sáng tạo theo dõi trong phân khúc', value: totalKocSeg, status: totalKocSeg > 0 ? 'high' : 'none' },
+            { check: 'Nhà sáng tạo có GMV LIVE bằng không', value: zeroLiveCount, status: 'low', note: 'Không thể tính tỷ lệ Video/LIVE' },
+            { check: 'Dòng có tỷ lệ Video/LIVE N/A', value: nanRatio, status: 'low', note: 'Đã xử lý — hiển thị là “N/A”' },
+            { check: 'Tải JSON thất bại', value: loadWarnings.length, status: loadWarnings.length === 0 ? 'high' : 'none', note: loadWarnings.length === 0 ? 'Mọi thứ ổn' : 'Xem cảnh báo bên dưới' },
           ]}
           columns={[
-            { key: 'check', label: 'Check' },
-            { key: 'value', label: 'Value', align: 'right', render: (r) => formatNumber(r.value) },
-            { key: 'status', label: 'Status', render: (r) => <span className={`chip ${r.status}`}>{r.status === 'high' ? 'OK' : r.status === 'none' ? 'Action needed' : 'Watch'}</span> },
-            { key: 'note', label: 'Note', render: (r) => String(r.note ?? '—') },
+            { key: 'check', label: 'Kiểm tra' },
+            { key: 'value', label: 'Giá trị', align: 'right', render: (r) => formatNumber(r.value) },
+            { key: 'status', label: 'Trạng thái', render: (r) => <span className={`chip ${r.status}`}>{r.status === 'high' ? 'OK' : r.status === 'none' ? 'Cần hành động' : 'Theo dõi'}</span> },
+            { key: 'note', label: 'Ghi chú', render: (r) => String(r.note ?? '—') },
           ]}
         />
 
         {loadWarnings.length > 0 && (
           <div className="alert-list" style={{ marginTop: 16 }}>
             {loadWarnings.map((w, i) => (
-              <AlertCard key={i} alert={{ type: 'danger', priority: 'P0', title: 'Load warning', message: w }} />
+              <AlertCard key={i} alert={{ type: 'danger', priority: 'P0', title: 'Cảnh báo tải dữ liệu', message: w }} />
             ))}
           </div>
         )}
